@@ -9,123 +9,117 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
         
-        body { font-family: 'Inter', system-ui, sans-serif; }
+        body { font-family: 'Inter', sans-serif; }
         .title-font { font-family: 'Playfair Display', serif; }
 
         .hero {
-            background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+            background: #facc15;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://picsum.photos/id/1015/2000/1200') center/cover;
-            opacity: 0.22;
-            z-index: 1;
+            background: url('https://picsum.photos/id/1015/2000/1200') center/cover; /* À remplacer par ta vraie photo paysage si tu veux */
+            opacity: 0.15;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-yellow-400 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <span class="text-4xl font-black tracking-[-2px]">PAPIDO</span>
+    <!-- Navigation identique à ton affiche -->
+    <nav class="fixed top-0 w-full bg-yellow-400 z-50 shadow">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <span class="text-4xl font-black">PAPIDO</span>
             
-            <div class="hidden md:flex gap-8 text-sm font-semibold">
-                <a href="#livre" class="hover:text-red-600">LE LIVRE</a>
-                <a href="#voyage" class="hover:text-red-600">LE VOYAGE</a>
-                <a href="#videos" class="hover:text-red-600">VIDÉOS</a>
-                <a href="#galerie" class="hover:text-red-600">GALERIE</a>
-                <a href="#contact" class="hover:text-red-600">CONTACT</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <a href="#" class="hover:underline">ACCUEIL</a>
+                <a href="#livre" class="hover:underline">LE LIVRE</a>
+                <a href="#voyage" class="hover:underline">LE VOYAGE</a>
+                <a href="#videos" class="hover:underline">VIDÉOS</a>
+                <a href="#galerie" class="hover:underline">GALERIE</a>
+                <a href="#actualites" class="hover:underline">ACTUALITÉS</a>
+                <a href="#contact" class="hover:underline">CONTACT</a>
             </div>
-            
-            <a href="https://youtube.com/@Papido" target="_blank" class="text-3xl hover:text-red-600">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
+
+            <div class="flex gap-4 text-2xl">
+                <a href="https://youtube.com/@Papido" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="hero text-black pt-20">
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-12 gap-12 items-center">
+    <!-- HERO - RECRÉATION EXACTE DE TA PHOTO -->
+    <header class="hero flex items-center pt-20">
+        <div class="hero-bg"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
             
-            <!-- Couverture du livre (prise sur ta photo) -->
-            <div class="md:col-span-5">
-                <img src="https://via.placeholder.com/420x550/111827/ffffff?text=TA+COUVERTURE+ICI" 
-                     alt="Papido - Le Tour de France à Vélo"
-                     class="w-full max-w-md mx-auto md:mx-0 shadow-2xl rounded-2xl -rotate-6 hover:rotate-0 transition-transform duration-700">
-                <!-- Remplace l'URL ci-dessus par le vrai lien de ta couverture quand tu l'auras uploadée -->
+            <!-- Livre à gauche (comme sur ta photo) -->
+            <div class="flex justify-center md:justify-end">
+                <img src="https://via.placeholder.com/380x500/111827/fff?text=COUVERTURE+PAPIDO" 
+                     alt="Couverture du livre Papido"
+                     class="shadow-2xl rounded-xl -rotate-6 max-w-[380px] w-full">
             </div>
 
-            <!-- Titre principal -->
-            <div class="md:col-span-7 text-center md:text-left">
-                <h1 class="title-font text-7xl md:text-[5.8rem] font-black leading-none tracking-tighter mb-6">
-                    PAPIDO
+            <!-- Texte central + silhouette à droite -->
+            <div class="text-center md:text-left">
+                <h1 class="title-font text-[4.8rem] md:text-[6.2rem] leading-none font-black tracking-tighter text-black">
+                    LE TOUR<br>de FRANCE<br><span class="text-red-600">À VÉLO</span>
                 </h1>
-                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-                    Le Tour de France à vélo<br>
-                    <span class="text-red-600">ou l’art de pédaler sans se prendre la tête</span>
-                </h2>
                 
-                <p class="text-2xl md:text-3xl font-light max-w-xl mx-auto md:mx-0 mb-12">
-                    Un voyage, des rencontres, des kilomètres<br>et beaucoup d’humour.
+                <p class="text-4xl md:text-5xl font-bold mt-4 mb-10 leading-tight">
+                    OU L'ART DE PÉDALER<br>SANS SE PRENDRE LA TÊTE
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
-                    <a href="#livre" 
-                       class="bg-red-600 hover:bg-red-700 text-white text-xl font-bold px-12 py-6 rounded-3xl flex items-center gap-4 shadow-xl transition">
+                <div class="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
+                    <a href="#livre" class="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 transition">
                         📖 DÉCOUVRIR LE LIVRE
                     </a>
-                    <a href="#videos" 
-                       class="border-4 border-black hover:bg-black hover:text-white text-xl font-bold px-12 py-6 rounded-3xl flex items-center gap-4 transition">
-                        🎥 VOIR LES VIDÉOS
+                    <a href="#videos" class="border-4 border-black hover:bg-black hover:text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 transition">
+                        ▶️ VOIR LES VIDÉOS
                     </a>
                 </div>
 
-                <div class="flex flex-wrap justify-center md:justify-start gap-8 mt-16 text-sm font-medium">
-                    <div>🚴 Roman autobiographique</div>
-                    <div>📸 Rencontres & photos</div>
-                    <div>🎥 +100 vidéos</div>
+                <!-- Icônes comme sur l'affiche -->
+                <div class="flex justify-center md:justify-start gap-8 mt-12 text-sm">
+                    <div class="flex items-center gap-2">
+                        <span class="text-3xl">📖</span>
+                        <div class="text-left leading-tight">UN ROMAN<br>AUTOBIOGRAPHIQUE</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-3xl">📸</span>
+                        <div class="text-left leading-tight">DES PHOTOS<br>DES RENCONTRES</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-3xl">🎥</span>
+                        <div class="text-left leading-tight">DES VIDÉOS<br>DU PARCOURS</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Silhouette cycliste -->
-        <div class="absolute bottom-0 right-0 hidden lg:block pointer-events-none">
+        <!-- Silhouette du cycliste (exactement comme ta photo) -->
+        <div class="absolute bottom-0 right-0 hidden lg:block">
             <img src="https://picsum.photos/id/1015/1100/950" 
                  alt="Papido à vélo" 
-                 class="h-[92vh] object-contain">
+                 class="h-[95vh] object-contain">
         </div>
 
-        <!-- YouTube -->
+        <!-- Bloc YouTube (comme sur ta photo) -->
         <div class="absolute top-32 right-12 hidden xl:block text-right">
-            <div class="text-2xl font-black">SUIVEZ</div>
-            <div class="text-5xl font-black text-red-600">PAPIDO</div>
-            <div class="flex items-center gap-3 justify-end mt-3">
-                <i class="fa-brands fa-youtube text-6xl"></i>
+            <div class="text-3xl font-black">SUIVEZ</div>
+            <div class="text-6xl font-black text-red-600">PAPIDO</div>
+            <div class="flex items-center gap-3 mt-4 justify-end">
+                <i class="fa-brands fa-youtube text-5xl"></i>
+                <span class="text-3xl font-bold">YouTube</span>
             </div>
-            <p class="text-xl">+ de 100 vidéos du parcours !</p>
+            <p class="text-xl mt-2">+ de 100 vidéos<br>du parcours !</p>
         </div>
     </header>
-
-    <!-- Icônes rapides -->
-    <section class="py-12 bg-white border-t-4 border-black">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-8 text-center">
-            <a href="#livre" class="group hover:scale-105 transition">📖<br><span class="font-bold">LE LIVRE</span></a>
-            <a href="#voyage" class="group hover:scale-105 transition">🗺️<br><span class="font-bold">LE VOYAGE</span></a>
-            <a href="#videos" class="group hover:scale-105 transition">🎥<br><span class="font-bold">VIDÉOS</span></a>
-            <a href="#galerie" class="group hover:scale-105 transition">📷<br><span class="font-bold">GALERIE</span></a>
-            <a href="#actualites" class="group hover:scale-105 transition">📰<br><span class="font-bold">ACTUALITÉS</span></a>
-            <a href="#contact" class="group hover:scale-105 transition">✉️<br><span class="font-bold">CONTACT</span></a>
-        </div>
-    </section>
 
 </body>
 </html>
