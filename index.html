@@ -1,172 +1,263 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Papido – Le Tour de France à vélo</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#f4f4f4;
-color:#333;
-line-height:1.7;
-}
-
-header{
-background:linear-gradient(135deg,#0d4d7a,#2d7d46);
-color:white;
-text-align:center;
-padding:80px 20px;
-}
-
-header h1{
-font-size:60px;
-margin-bottom:10px;
-}
-
-header h2{
-font-weight:normal;
-font-size:28px;
-}
-
-section{
-max-width:1000px;
-margin:auto;
-padding:60px 20px;
-background:white;
-margin-top:20px;
-border-radius:10px;
-}
-
-h3{
-color:#0d4d7a;
-font-size:32px;
-}
-
-.bouton{
-
-display:inline-block;
-padding:15px 30px;
-background:#0d4d7a;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-size:20px;
-margin-top:20px;
-
-}
-
-.bouton:hover{
-
-background:#2d7d46;
-
-}
-
-footer{
-
-background:#222;
-color:white;
-text-align:center;
-padding:40px;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papido | Le Tour de France à vélo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
+<body class="bg-stone-50 text-stone-800">
 
-<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-5">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bicycle text-3xl text-amber-600"></i>
+                <span class="title-font text-3xl font-bold tracking-tight">PAPIDO</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#aventure" class="hover:text-amber-600 transition-colors">L'Aventure</a>
+                <a href="#livre" class="hover:text-amber-600 transition-colors">Le Livre</a>
+                <a href="#videos" class="hover:text-amber-600 transition-colors">Vidéos</a>
+                <a href="#galerie" class="hover:text-amber-600 transition-colors">Galerie</a>
+                <a href="#contact" class="hover:text-amber-600 transition-colors">Contact</a>
+            </div>
+            
+            <a href="#livre" 
+               class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl font-medium transition-all flex items-center gap-2">
+                <i class="fa-solid fa-book"></i>
+                Commander le livre
+            </a>
+        </div>
+    </nav>
 
-<header>
+    <!-- Hero -->
+    <header class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="title-font text-7xl md:text-8xl font-bold mb-4 tracking-tighter">
+                PAPIDO
+            </h1>
+            <p class="text-3xl md:text-4xl font-light mb-8">
+                Le Tour de France à vélo<br>
+                <span class="text-amber-300">ou l'art de pédaler sans se prendre la tête</span>
+            </p>
+            
+            <p class="max-w-2xl mx-auto text-lg md:text-xl mb-12 opacity-90">
+                Un voyage à vélo, des rencontres inattendues, des paysages magnifiques et beaucoup d'autodérision.
+                Une aventure authentique qui a donné naissance à un livre et à une série de vidéos.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#livre" 
+                   class="bg-white text-stone-900 hover:bg-amber-100 px-10 py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-3 transition-all">
+                    <i class="fa-solid fa-book-open"></i>
+                    Découvrir le livre
+                </a>
+                <a href="#videos" 
+                   class="border-2 border-white hover:bg-white/10 px-10 py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-3 transition-all">
+                    <i class="fa-solid fa-play"></i>
+                    Voir les vidéos
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-4xl"></i>
+        </div>
+    </header>
 
-<h1>PAPIDO</h1>
+    <!-- L'Aventure en chiffres -->
+    <section id="aventure" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-5xl font-bold mb-4">L'Aventure en quelques coups de pédale</h2>
+                <p class="text-xl text-stone-600">3 800 km de routes françaises, des rencontres et des souvenirs inoubliables</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-6xl mb-3">🚴</div>
+                    <div class="text-5xl font-bold text-amber-600">3 800</div>
+                    <div class="text-stone-500">kilomètres</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl mb-3">🏕️</div>
+                    <div class="text-5xl font-bold text-amber-600">Des dizaines</div>
+                    <div class="text-stone-500">d'étapes</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl mb-3">📹</div>
+                    <div class="text-5xl font-bold text-amber-600">100+</div>
+                    <div class="text-stone-500">vidéos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl mb-3">😊</div>
+                    <div class="text-5xl font-bold text-amber-600">Centaines</div>
+                    <div class="text-stone-500">de rencontres</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>Le Tour de France à vélo<br>
+    <!-- Le Livre -->
+    <section id="livre" class="py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Image couverture -->
+                <div class="relative">
+                    <div class="aspect-[4/5] bg-white shadow-2xl rounded-3xl overflow-hidden">
+                        <!-- Remplacer par ta vraie couverture -->
+                        <img src="https://picsum.photos/id/201/800/1000" 
+                             alt="Couverture du livre Papido" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="title-font text-5xl font-bold leading-tight mb-8">
+                        Et si le plus beau moyen de découvrir la France était simplement de pédaler ?
+                    </h2>
+                    <div class="prose prose-lg text-stone-700">
+                        <p class="text-xl leading-relaxed">
+                            Papido nous emmène sur les routes de France avec humour, sincérité et curiosité. 
+                            Un récit authentique, plein d'autodérision, de rencontres improbables et de paysages à couper le souffle.
+                        </p>
+                        <p>
+                            De la Bretagne aux Alpes, en passant par les châteaux de la Loire et les volcans d'Auvergne, 
+                            ce voyage à vélo est bien plus qu'une simple aventure sportive : c'est une ode à la lenteur, 
+                            à la rencontre et à la liberté.
+                        </p>
+                    </div>
+                    
+                    <a href="#" 
+                       class="mt-10 inline-flex items-center gap-4 bg-stone-900 text-white px-10 py-5 rounded-3xl text-lg font-semibold hover:bg-amber-600 transition-all">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Commander le livre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-ou l'art de pédaler sans se prendre la tête
+    <!-- Citation -->
+    <section class="py-24 bg-stone-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="text-6xl mb-8">“</div>
+            <p class="text-3xl md:text-4xl leading-tight font-light italic">
+                Le plus difficile n'est pas de pédaler...<br>
+                c'est de rentrer chez soi.
+            </p>
+            <div class="mt-8 text-amber-400 font-medium">— Papido</div>
+        </div>
+    </section>
 
-</h2>
+    <!-- Vidéos -->
+    <section id="videos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="title-font text-5xl font-bold">Suivez l'aventure en vidéo</h2>
+                    <p class="text-xl text-stone-600 mt-3">Toute la série sur YouTube</p>
+                </div>
+                <a href="https://www.youtube.com/@Papido" target="_blank"
+                   class="mt-6 md:mt-0 flex items-center gap-3 text-lg font-medium hover:text-amber-600">
+                    Voir toute la chaîne 
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Embed dernière vidéo ou playlist (à remplacer par ton vrai embed) -->
+            <div class="aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
+                <iframe width="100%" height="100%" 
+                        src="https://www.youtube.com/embed/VIDEO_ID_ICI" 
+                        title="Papido - Le Tour de France à vélo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-<p>
+    <!-- Galerie -->
+    <section id="galerie" class="py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="title-font text-5xl font-bold text-center mb-16">Instantanés du voyage</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Remplacer par tes vraies photos -->
+                <img src="https://picsum.photos/id/1015/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Papido vélo">
+                <img src="https://picsum.photos/id/133/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Paysage">
+                <img src="https://picsum.photos/id/201/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Rencontre">
+                <img src="https://picsum.photos/id/251/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Vélo">
+                <img src="https://picsum.photos/id/870/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Coucher de soleil">
+                <img src="https://picsum.photos/id/1016/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="France">
+            </div>
+        </div>
+    </section>
 
-Roman autobiographique d'aventure inspiré d'un voyage réel.
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-stone-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-solid fa-bicycle text-4xl text-amber-500"></i>
+                    <span class="title-font text-4xl font-bold">PAPIDO</span>
+                </div>
+                <p class="text-stone-400">Un Tour de France à vélo, un livre et une aventure humaine.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6">Liens rapides</h4>
+                <div class="space-y-3 text-stone-400">
+                    <a href="#livre" class="block hover:text-white">Le Livre</a>
+                    <a href="#videos" class="block hover:text-white">Vidéos YouTube</a>
+                    <a href="#galerie" class="block hover:text-white">Galerie photo</a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6">Restons en contact</h4>
+                <a href="https://www.youtube.com/@Papido" target="_blank" 
+                   class="flex items-center gap-3 text-stone-400 hover:text-white mb-6">
+                    <i class="fa-brands fa-youtube text-2xl"></i>
+                    <span>YouTube</span>
+                </a>
+                <p class="text-sm text-stone-500">© 2026 laventurepapido.fr – Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
 
-</p>
-
-<a class="bouton" href="#livre">
-
-Découvrir le livre
-
-</a>
-
-</header>
-
-<section id="livre">
-
-<h3>Le livre</h3>
-
-<p>
-
-Des centaines de kilomètres, des rencontres inattendues,
-des paysages magnifiques et beaucoup d'humour.
-
-Papido raconte son Tour de France à vélo avec simplicité,
-autodérision et bonne humeur.
-
-Un récit qui donne envie de partir à l'aventure.
-
-</p>
-
-</section>
-
-<section>
-
-<h3>Les vidéos du voyage</h3>
-
-<p>
-
-Retrouvez une vidéo presque chaque jour sur la chaîne YouTube.
-
-</p>
-
-<a class="bouton"
-
-href="https://www.youtube.com/@papido-g9y/shorts"
-
-target="_blank">
-
-Voir la chaîne YouTube
-
-</a>
-
-</section>
-
-<section>
-
-<h3>L'auteur</h3>
-
-<p>
-
-Passionné de vélo et d'aventure,
-Papido partage ici son expérience d'un Tour de France vécu
-au rythme des rencontres et des coups de pédale.
-
-</p>
-
-</section>
-
-<footer>
-
-© 2026 Papido - L'Aventure Papido
-
-</footer>
-
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled', 'py-3');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'py-3');
+            }
+        });
+    </script>
 </body>
-
 </html>
