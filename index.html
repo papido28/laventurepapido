@@ -1,351 +1,3 @@
-Pour voir les raccourcis clavier, appuyez sur le point d'interrogation.
-Voir les raccourcis clavier
-
-Accueil 
-
-Explorer 
-
-12
-
-Notifications 
-
-Chat 
-
-Grok 
-
-Premium 
-
-Signets 
-
-Articles 
-
-Profil 
-
-Plus 
-
-Poster
-
-Pierre 28
-
-@pierre_doo
-
-Voir de nouveaux posts
-
-ModifierAvec plaisir ! Je te propose qu'on fasse les choses sérieusement. Nous allons créer un site qui donne envie de lire ton livre et de suivre ton aventure.Phase 1 : Construire l'identitéLe visiteur doit comprendre en 5 secondes :Qui est Papido ?Quelle est cette aventure ?Pourquoi ai-je envie d'en savoir plus ?La page d'accueil
-Bandeau
-PAPIDO
-Sous-titreLe Tour de France à véloou l'art de pédaler sans se prendre la têteTexteUn voyage à vélo, des rencontres inattendues, des paysages magnifiques et beaucoup d'autodérision.Découvrez une aventure authentique qui a donné naissance à un livre et à une série de vidéos.Deux boutons Découvrir le livre Voir les vidéosEnsuite
-Le livreUne belle photo de couverture.Présentation"Et si le plus beau moyen de découvrir la France était simplement de pédaler ?Papido nous emmène sur les routes de France avec humour, sincérité et curiosité."Bouton :Commander le livreUne section qui raconte une histoire
-L'aventure en quelques chiffres 3 800 km Des dizaines d'étapes 100+ vidéos Des centaines de rencontres(Nous ajusterons ces chiffres avec les vrais.)Les vidéosUne présentation de ta chaîne YouTube avec un gros bouton :Voir toutes les vidéosUne galerieDe très grandes photos.Peu de texte.L'image doit raconter le voyage.Une citationEn plein milieu de la page :"Le plus difficile n'est pas de pédaler... c'est de rentrer chez soi."Une page ContactSimple.NomYouTubeActualitésCe que je te propose pour demainNous allons transformer ce site en un vrai carnet de voyage.Pour cela, j'aurai besoin de :Une grande photo de toi avec le vélo.
-La couverture du livre (même provisoire).
-10 à 15 belles photos du Tour de France.
-Le résumé du livre (10 à 20 lignes).
-Mon objectif
-
-Créer un site qui ressemble davantage à un magazine d'aventure qu'à une simple page web.Quand quelqu'un arrivera sur https://laventurepapido.fr, il devra immédiatement avoir envie de :regarder les vidéos ;
-feuilleter le livre ;
-suivre ton aventure ;
-partager le site.Et je te propose qu'on le fasse progressivement, en améliorant le site chaque jour jusqu'à obtenir une version vraiment professionnelle. je fais quoi? Maintenant, on arrête la technique et on passe au plaisir.Tu n'as plus rien à configurer.Le site fonctionne.
-Le domaine fonctionne.
-GitHub fonctionne.
-HTTPS va se mettre en place automatiquement.Notre prochain objectifConstruire un beau site.Ce que je te demande aujourd'huiEnvoie-moi ces éléments : 1. Une photo de toi avec le véloLa plus belle que tu aies. 2. La couverture du livreMême si elle n'est pas définitive. 3. Le résumé du livre10 à 20 lignes. 4. 5 à 10 photos du voyagePaysages, vélo, rencontres, panneaux, etc. 5. (facultatif)Le lien YouTube est déjà connu, donc je m'en occupe.Ce que je vais faireJe vais créer une Version 2 du site avec : une page d'accueil spectaculaire ;
- une présentation du livre ;
- une rubrique "L'aventure" ;
- les vidéos YouTube intégrées ;
- une galerie de photos ;
- un design parfait sur téléphone et ordinateur.
-ConcrètementTu m'envoies les photos une par une directement dans cette conversation (glisser-déposer ou joindre un fichier).Je te prépare ensuite le nouveau index.html et je t'expliquerai exactement comment le mettre en ligne sur GitHub en moins d'une minute.Mon conseilNe cherche plus à modifier le site toi-même pour le moment.Concentre-toi sur le contenu : photos, texte, couverture.Je m'occupe de la mise en forme et du design. Nous allons faire de laventurepapido.fr un site qui raconte une aventure et donne envie de lire ton livre. prepare le nouvel index.htmlmodifier avec tout ce que tu as ditExcellente idée ! Je te propose de repartir sur une base moderne, élégante et facile à faire évoluer.Ce nouvel index.html mettra en avant :un grand bandeau d'accueil,
-une navigation fixe,
-une présentation du livre,
-une section sur l'aventure,
-un accès direct à ta chaîne YouTube,
-une invitation à suivre le projet.
-Avant de générer le code complet, je voudrais intégrer des informations réelles plutôt que du texte générique.
-crée l'index.html correspondant
-
-html
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papido | Le Tour de France à vélo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        .title-font {
-            font-family: 'Playfair Display', serif;
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-        }
-        .nav-scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body class="bg-stone-50 text-stone-800">
-
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-5">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <i class="fa-solid fa-bicycle text-3xl text-amber-600"></i>
-                <span class="title-font text-3xl font-bold tracking-tight">PAPIDO</span>
-            </div>
-            
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#aventure" class="hover:text-amber-600 transition-colors">L'Aventure</a>
-                <a href="#livre" class="hover:text-amber-600 transition-colors">Le Livre</a>
-                <a href="#videos" class="hover:text-amber-600 transition-colors">Vidéos</a>
-                <a href="#galerie" class="hover:text-amber-600 transition-colors">Galerie</a>
-                <a href="#contact" class="hover:text-amber-600 transition-colors">Contact</a>
-            </div>
-            
-            <a href="#livre" 
-               class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-2xl font-medium transition-all flex items-center gap-2">
-                <i class="fa-solid fa-book"></i>
-                Commander le livre
-            </a>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <header class="hero-bg h-screen flex items-center text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="title-font text-7xl md:text-8xl font-bold mb-4 tracking-tighter">
-                PAPIDO
-            </h1>
-            <p class="text-3xl md:text-4xl font-light mb-8">
-                Le Tour de France à vélo<br>
-                <span class="text-amber-300">ou l'art de pédaler sans se prendre la tête</span>
-            </p>
-            
-            <p class="max-w-2xl mx-auto text-lg md:text-xl mb-12 opacity-90">
-                Un voyage à vélo, des rencontres inattendues, des paysages magnifiques et beaucoup d'autodérision.
-                Une aventure authentique qui a donné naissance à un livre et à une série de vidéos.
-            </p>
-            
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="#livre" 
-                   class="bg-white text-stone-900 hover:bg-amber-100 px-10 py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-3 transition-all">
-                    <i class="fa-solid fa-book-open"></i>
-                    Découvrir le livre
-                </a>
-                <a href="#videos" 
-                   class="border-2 border-white hover:bg-white/10 px-10 py-5 rounded-3xl font-semibold text-lg flex items-center justify-center gap-3 transition-all">
-                    <i class="fa-solid fa-play"></i>
-                    Voir les vidéos
-                </a>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-            <i class="fa-solid fa-chevron-down text-4xl"></i>
-        </div>
-    </header>
-
-    <!-- L'Aventure en chiffres -->
-    <section id="aventure" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="title-font text-5xl font-bold mb-4">L'Aventure en quelques coups de pédale</h2>
-                <p class="text-xl text-stone-600">3 800 km de routes françaises, des rencontres et des souvenirs inoubliables</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-6xl mb-3">🚴</div>
-                    <div class="text-5xl font-bold text-amber-600">3 800</div>
-                    <div class="text-stone-500">kilomètres</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl mb-3">🏕️</div>
-                    <div class="text-5xl font-bold text-amber-600">Des dizaines</div>
-                    <div class="text-stone-500">d'étapes</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl mb-3">📹</div>
-                    <div class="text-5xl font-bold text-amber-600">100+</div>
-                    <div class="text-stone-500">vidéos</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-6xl mb-3">😊</div>
-                    <div class="text-5xl font-bold text-amber-600">Centaines</div>
-                    <div class="text-stone-500">de rencontres</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Le Livre -->
-    <section id="livre" class="py-24 bg-stone-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Image couverture -->
-                <div class="relative">
-                    <div class="aspect-[4/5] bg-white shadow-2xl rounded-3xl overflow-hidden">
-                        <!-- Remplacer par ta vraie couverture -->
-                        <img src="https://picsum.photos/id/201/800/1000" 
-                             alt="Couverture du livre Papido" 
-                             class="w-full h-full object-cover">
-                    </div>
-                </div>
-                
-                <div>
-                    <h2 class="title-font text-5xl font-bold leading-tight mb-8">
-                        Et si le plus beau moyen de découvrir la France était simplement de pédaler ?
-                    </h2>
-                    <div class="prose prose-lg text-stone-700">
-                        <p class="text-xl leading-relaxed">
-                            Papido nous emmène sur les routes de France avec humour, sincérité et curiosité. 
-                            Un récit authentique, plein d'autodérision, de rencontres improbables et de paysages à couper le souffle.
-                        </p>
-                        <p>
-                            De la Bretagne aux Alpes, en passant par les châteaux de la Loire et les volcans d'Auvergne, 
-                            ce voyage à vélo est bien plus qu'une simple aventure sportive : c'est une ode à la lenteur, 
-                            à la rencontre et à la liberté.
-                        </p>
-                    </div>
-                    
-                    <a href="#" 
-                       class="mt-10 inline-flex items-center gap-4 bg-stone-900 text-white px-10 py-5 rounded-3xl text-lg font-semibold hover:bg-amber-600 transition-all">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        Commander le livre
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Citation -->
-    <section class="py-24 bg-stone-900 text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="text-6xl mb-8">“</div>
-            <p class="text-3xl md:text-4xl leading-tight font-light italic">
-                Le plus difficile n'est pas de pédaler...<br>
-                c'est de rentrer chez soi.
-            </p>
-            <div class="mt-8 text-amber-400 font-medium">— Papido</div>
-        </div>
-    </section>
-
-    <!-- Vidéos -->
-    <section id="videos" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h2 class="title-font text-5xl font-bold">Suivez l'aventure en vidéo</h2>
-                    <p class="text-xl text-stone-600 mt-3">Toute la série sur YouTube</p>
-                </div>
-                <a href="https://www.youtube.com/@Papido" target="_blank"
-                   class="mt-6 md:mt-0 flex items-center gap-3 text-lg font-medium hover:text-amber-600">
-                    Voir toute la chaîne 
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <!-- Embed dernière vidéo ou playlist (à remplacer par ton vrai embed) -->
-            <div class="aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
-                <iframe width="100%" height="100%" 
-                        src="https://www.youtube.com/embed/VIDEO_ID_ICI" 
-                        title="Papido - Le Tour de France à vélo" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galerie -->
-    <section id="galerie" class="py-24 bg-stone-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="title-font text-5xl font-bold text-center mb-16">Instantanés du voyage</h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <!-- Remplacer par tes vraies photos -->
-                <img src="https://picsum.photos/id/1015/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Papido vélo">
-                <img src="https://picsum.photos/id/133/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Paysage">
-                <img src="https://picsum.photos/id/201/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Rencontre">
-                <img src="https://picsum.photos/id/251/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Vélo">
-                <img src="https://picsum.photos/id/870/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="Coucher de soleil">
-                <img src="https://picsum.photos/id/1016/800/800" class="rounded-3xl aspect-square object-cover hover:scale-105 transition-transform cursor-pointer" alt="France">
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-stone-900 text-white py-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-            <div>
-                <div class="flex items-center gap-3 mb-6">
-                    <i class="fa-solid fa-bicycle text-4xl text-amber-500"></i>
-                    <span class="title-font text-4xl font-bold">PAPIDO</span>
-                </div>
-                <p class="text-stone-400">Un Tour de France à vélo, un livre et une aventure humaine.</p>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-6">Liens rapides</h4>
-                <div class="space-y-3 text-stone-400">
-                    <a href="#livre" class="block hover:text-white">Le Livre</a>
-                    <a href="#videos" class="block hover:text-white">Vidéos YouTube</a>
-                    <a href="#galerie" class="block hover:text-white">Galerie photo</a>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-6">Restons en contact</h4>
-                <a href="https://www.youtube.com/@Papido" target="_blank" 
-                   class="flex items-center gap-3 text-stone-400 hover:text-white mb-6">
-                    <i class="fa-brands fa-youtube text-2xl"></i>
-                    <span>YouTube</span>
-                </a>
-                <p class="text-sm text-stone-500">© 2026 laventurepapido.fr – Tous droits réservés</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('nav-scrolled', 'py-3');
-            } else {
-                navbar.classList.remove('nav-scrolled', 'py-3');
-            }
-        });
-    </script>
-</body>
-</html>
-
-Comment l'utiliser :Copie tout le code ci-dessus.
-Colle-le dans un fichier index.html (remplace l'ancien).
-Envoie-moi tes photos (toi + vélo, couverture, 5-10 photos du voyage).
-Je mettrai à jour le code avec tes vraies images et le lien YouTube exact.
-
-Tu peux déjà le mettre en ligne sur GitHub Pages, le site est 100 % responsive et très beau sur mobile.Prêt à recevoir tes images pour la Version 2 finale ! 
-
-Optimisation SEO pour le livre
-
-Stratégie newsletter voyage
-
-Ajouter un formulaire de contact
-
-je la veux en premiere page
-
-Voici le nouvel index.html inspiré directement de ton magnifique mockup jaune ! html
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -355,182 +7,125 @@ Voici le nouvel index.html inspiré directement de ton magnifique mockup jaune !
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
         
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
         .title-font { font-family: 'Playfair Display', serif; }
-        
+
         .hero {
-            background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
-            background-image: url('https://picsum.photos/id/1015/2000/1200'); /* À remplacer par ta vraie photo de fond */
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .brush-text {
-            font-size: 4.5rem;
-            line-height: 1.05;
-            text-shadow: 4px 4px 0 #000;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://picsum.photos/id/1015/2000/1200') center/cover;
+            opacity: 0.22;
+            z-index: 1;
         }
     </style>
 </head>
-<body class="bg-white overflow-x-hidden">
+<body>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-yellow-400 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <span class="text-4xl font-black tracking-tighter">PAPIDO</span>
+    <nav class="fixed top-0 w-full bg-yellow-400 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="text-4xl font-black tracking-[-2px]">PAPIDO</span>
+            
+            <div class="hidden md:flex gap-8 text-sm font-semibold">
+                <a href="#livre" class="hover:text-red-600">LE LIVRE</a>
+                <a href="#voyage" class="hover:text-red-600">LE VOYAGE</a>
+                <a href="#videos" class="hover:text-red-600">VIDÉOS</a>
+                <a href="#galerie" class="hover:text-red-600">GALERIE</a>
+                <a href="#contact" class="hover:text-red-600">CONTACT</a>
             </div>
             
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
-                <a href="#" class="hover:underline">ACCUEIL</a>
-                <a href="#livre" class="hover:underline">LE LIVRE</a>
-                <a href="#voyage" class="hover:underline">LE VOYAGE</a>
-                <a href="#videos" class="hover:underline">VIDÉOS</a>
-                <a href="#galerie" class="hover:underline">GALERIE</a>
-                <a href="#actualites" class="hover:underline">ACTUALITÉS</a>
-                <a href="#contact" class="hover:underline">CONTACT</a>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <a href="https://youtube.com/@Papido" target="_blank" class="text-2xl"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="text-2xl"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-2xl"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+            <a href="https://youtube.com/@Papido" target="_blank" class="text-3xl hover:text-red-600">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
         </div>
     </nav>
 
-    <!-- HERO - Exactement comme ton mockup -->
-    <header class="hero min-h-screen flex items-center relative text-black pt-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <!-- HERO -->
+    <header class="hero text-black pt-20">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-12 gap-12 items-center">
             
-            <!-- Livre à gauche -->
-            <div class="relative z-10">
-                <img id="book-cover" 
-                     src="https://via.placeholder.com/400x520" 
-                     alt="Papido - Le Tour de France à Vélo" 
-                     class="shadow-2xl rounded-xl rotate-[-8deg] hover:rotate-0 transition-transform duration-500">
+            <!-- Couverture du livre (prise sur ta photo) -->
+            <div class="md:col-span-5">
+                <img src="https://via.placeholder.com/420x550/111827/ffffff?text=TA+COUVERTURE+ICI" 
+                     alt="Papido - Le Tour de France à Vélo"
+                     class="w-full max-w-md mx-auto md:mx-0 shadow-2xl rounded-2xl -rotate-6 hover:rotate-0 transition-transform duration-700">
+                <!-- Remplace l'URL ci-dessus par le vrai lien de ta couverture quand tu l'auras uploadée -->
             </div>
 
-            <!-- Texte central + cycliste -->
-            <div class="text-center md:text-left">
-                <h1 class="title-font brush-text text-7xl md:text-[5.5rem] leading-none font-black mb-6">
-                    LE TOUR<br>de FRANCE<br><span class="text-red-600">À VÉLO</span>
+            <!-- Titre principal -->
+            <div class="md:col-span-7 text-center md:text-left">
+                <h1 class="title-font text-7xl md:text-[5.8rem] font-black leading-none tracking-tighter mb-6">
+                    PAPIDO
                 </h1>
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
+                    Le Tour de France à vélo<br>
+                    <span class="text-red-600">ou l’art de pédaler sans se prendre la tête</span>
+                </h2>
                 
-                <p class="text-4xl md:text-5xl font-bold leading-tight mb-8">
-                    OU L'ART DE PÉDALER<br>SANS SE PRENDRE LA TÊTE
+                <p class="text-2xl md:text-3xl font-light max-w-xl mx-auto md:mx-0 mb-12">
+                    Un voyage, des rencontres, des kilomètres<br>et beaucoup d’humour.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
                     <a href="#livre" 
-                       class="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition">
-                        <i class="fa-solid fa-book"></i>
-                        DÉCOUVRIR LE LIVRE
+                       class="bg-red-600 hover:bg-red-700 text-white text-xl font-bold px-12 py-6 rounded-3xl flex items-center gap-4 shadow-xl transition">
+                        📖 DÉCOUVRIR LE LIVRE
                     </a>
-                    
                     <a href="#videos" 
-                       class="border-4 border-black hover:bg-black hover:text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition">
-                        <i class="fa-solid fa-play"></i>
-                        VOIR LES VIDÉOS
+                       class="border-4 border-black hover:bg-black hover:text-white text-xl font-bold px-12 py-6 rounded-3xl flex items-center gap-4 transition">
+                        🎥 VOIR LES VIDÉOS
                     </a>
                 </div>
 
-                <div class="mt-12 flex items-center justify-center md:justify-start gap-8 text-sm">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-book text-2xl"></i>
-                        <div>UN ROMAN<br>AUTOBIOGRAPHIQUE</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-camera text-2xl"></i>
-                        <div>DES PHOTOS<br>DES RENCONTRES</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-video text-2xl"></i>
-                        <div>DES VIDÉOS<br>DU PARCOURS</div>
-                    </div>
+                <div class="flex flex-wrap justify-center md:justify-start gap-8 mt-16 text-sm font-medium">
+                    <div>🚴 Roman autobiographique</div>
+                    <div>📸 Rencontres & photos</div>
+                    <div>🎥 +100 vidéos</div>
                 </div>
             </div>
         </div>
 
-        <!-- Cycliste silhouette (à droite) -->
-        <div class="hidden lg:block absolute right-0 bottom-0">
-            <img src="https://picsum.photos/id/1015/900/800" 
+        <!-- Silhouette cycliste -->
+        <div class="absolute bottom-0 right-0 hidden lg:block pointer-events-none">
+            <img src="https://picsum.photos/id/1015/1100/950" 
                  alt="Papido à vélo" 
-                 class="h-[85vh] object-contain">
+                 class="h-[92vh] object-contain">
         </div>
 
-        <!-- Texte YouTube -->
-        <div class="absolute top-32 right-12 text-right hidden xl:block">
-            <div class="text-3xl font-black text-red-600">SUIVEZ</div>
-            <div class="text-6xl font-black text-black">PAPIDO</div>
-            <div class="flex items-center gap-3 mt-4">
-                <span class="text-2xl">SUR</span>
-                <i class="fa-brands fa-youtube text-5xl text-red-600"></i>
+        <!-- YouTube -->
+        <div class="absolute top-32 right-12 hidden xl:block text-right">
+            <div class="text-2xl font-black">SUIVEZ</div>
+            <div class="text-5xl font-black text-red-600">PAPIDO</div>
+            <div class="flex items-center gap-3 justify-end mt-3">
+                <i class="fa-brands fa-youtube text-6xl"></i>
             </div>
-            <p class="text-xl mt-2">+ de 100 vidéos<br>du parcours !</p>
+            <p class="text-xl">+ de 100 vidéos du parcours !</p>
         </div>
     </header>
 
-    <!-- Section icônes (comme dans le mockup) -->
+    <!-- Icônes rapides -->
     <section class="py-12 bg-white border-t-4 border-black">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-6 gap-8 text-center">
-            <a href="#livre" class="group">
-                <div class="text-5xl mb-3">📖</div>
-                <div class="font-bold">LE LIVRE</div>
-                <div class="text-sm text-gray-600">Résumé, extraits, avis lecteurs</div>
-            </a>
-            <a href="#voyage" class="group">
-                <div class="text-5xl mb-3">🗺️</div>
-                <div class="font-bold">LE VOYAGE</div>
-                <div class="text-sm text-gray-600">Étapes, anecdotes, rencontres</div>
-            </a>
-            <a href="#videos" class="group">
-                <div class="text-5xl mb-3">▶️</div>
-                <div class="font-bold">VIDÉOS</div>
-                <div class="text-sm text-gray-600">Toute la série YouTube</div>
-            </a>
-            <a href="#galerie" class="group">
-                <div class="text-5xl mb-3">📷</div>
-                <div class="font-bold">GALERIE</div>
-                <div class="text-sm text-gray-600">Les plus belles photos</div>
-            </a>
-            <a href="#actualites" class="group">
-                <div class="text-5xl mb-3">🗓️</div>
-                <div class="font-bold">ACTUALITÉS</div>
-                <div class="text-sm text-gray-600">Dédicaces, salons, presse</div>
-            </a>
-            <a href="#contact" class="group">
-                <div class="text-5xl mb-3">✉️</div>
-                <div class="font-bold">CONTACT</div>
-                <div class="text-sm text-gray-600">Un message ? Écrivez-moi !</div>
-            </a>
+            <a href="#livre" class="group hover:scale-105 transition">📖<br><span class="font-bold">LE LIVRE</span></a>
+            <a href="#voyage" class="group hover:scale-105 transition">🗺️<br><span class="font-bold">LE VOYAGE</span></a>
+            <a href="#videos" class="group hover:scale-105 transition">🎥<br><span class="font-bold">VIDÉOS</span></a>
+            <a href="#galerie" class="group hover:scale-105 transition">📷<br><span class="font-bold">GALERIE</span></a>
+            <a href="#actualites" class="group hover:scale-105 transition">📰<br><span class="font-bold">ACTUALITÉS</span></a>
+            <a href="#contact" class="group hover:scale-105 transition">✉️<br><span class="font-bold">CONTACT</span></a>
         </div>
     </section>
 
-    <!-- Le reste du site (à compléter) -->
-    <div class="h-96 bg-stone-100 flex items-center justify-center text-2xl font-light">
-        Sections "Le Livre", "Le Voyage", "Galerie", etc. à venir dès que tu m'envoies les photos et textes
-    </div>
-
 </body>
 </html>
-
-Prochaines étapes :Copie-colle ce code dans ton fichier index.html
-Envoie-moi :La vraie couverture du livre (remplacera l’image placeholder)
-Une belle photo de toi + vélo (pour le fond ou le cycliste)
-8-10 photos pour la galerie
-
-Je te renverrai ensuite la version complète avec toutes les sections remplies et ton design exactement comme le mockup.Tu veux que je continue tout de suite avec les autres sections ou tu m’envoies d’abord les images ? 
-
-Optimiser les performances de chargement
-
-Intégrer un lecteur vidéo YouTube
-
-Remplacer les images placeholder
-
-Réfléchir plus intensément
-
-Automatique
-
