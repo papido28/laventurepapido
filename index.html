@@ -1,125 +1,475 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAPIDO | Le Tour de France à Vélo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-        .title-font { font-family: 'Playfair Display', serif; }
 
-        .hero {
-            background: #facc15;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: url('https://picsum.photos/id/1015/2000/1200') center/cover; /* À remplacer par ta vraie photo paysage si tu veux */
-            opacity: 0.15;
-        }
-    </style>
+<title>Papido - Le Tour de France à vélo</title>
+
+<meta name="description" content="Le Tour de France à vélo ou l'art de pédaler sans se prendre la tête. Une aventure authentique, un livre, des vidéos et des rencontres.">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+background:#fafafa;
+color:#222;
+line-height:1.7;
+
+}
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#111;
+padding:15px;
+z-index:999;
+
+}
+
+nav ul{
+
+display:flex;
+justify-content:center;
+list-style:none;
+gap:35px;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+
+}
+
+nav a:hover{
+
+color:#ffd400;
+
+}
+
+header{
+
+height:100vh;
+
+background:linear-gradient(
+rgba(0,0,0,0.55),
+rgba(0,0,0,0.55)
+),
+
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+color:white;
+
+padding:20px;
+
+}
+
+header h1{
+
+font-size:70px;
+
+letter-spacing:4px;
+
+margin-bottom:20px;
+
+}
+
+header h2{
+
+font-size:35px;
+
+font-weight:300;
+
+margin-bottom:30px;
+
+}
+
+header p{
+
+max-width:700px;
+
+margin:auto;
+
+font-size:22px;
+
+}
+
+.boutons{
+
+margin-top:40px;
+
+}
+
+.bouton{
+
+display:inline-block;
+
+padding:15px 35px;
+
+margin:10px;
+
+background:#ffd400;
+
+color:#000;
+
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.bouton:hover{
+
+background:white;
+
+}
+
+section{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:90px 20px;
+
+}
+
+section h2{
+
+font-size:42px;
+
+margin-bottom:30px;
+
+text-align:center;
+
+}
+
+section p{
+
+font-size:20px;
+
+margin-bottom:20px;
+
+}
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:50px;
+
+}
+
+.carte{
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+text-align:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.carte h3{
+
+font-size:45px;
+
+color:#ffd400;
+
+margin-bottom:10px;
+
+}
+
+.youtube{
+
+text-align:center;
+
+background:#111;
+
+color:white;
+
+padding:80px 20px;
+
+}
+
+.youtube a{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:18px 40px;
+
+background:red;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+border-radius:8px;
+
+}
+
+.youtube a:hover{
+
+background:#cc0000;
+
+}
+
+footer{
+
+background:#111;
+
+color:white;
+
+text-align:center;
+
+padding:60px 20px;
+
+}
+
+footer p{
+
+margin:10px;
+
+}
+
+@media(max-width:768px){
+
+header h1{
+
+font-size:45px;
+
+}
+
+header h2{
+
+font-size:24px;
+
+}
+
+nav ul{
+
+gap:15px;
+
+font-size:14px;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <!-- Navigation identique à ton affiche -->
-    <nav class="fixed top-0 w-full bg-yellow-400 z-50 shadow">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <span class="text-4xl font-black">PAPIDO</span>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
-                <a href="#" class="hover:underline">ACCUEIL</a>
-                <a href="#livre" class="hover:underline">LE LIVRE</a>
-                <a href="#voyage" class="hover:underline">LE VOYAGE</a>
-                <a href="#videos" class="hover:underline">VIDÉOS</a>
-                <a href="#galerie" class="hover:underline">GALERIE</a>
-                <a href="#actualites" class="hover:underline">ACTUALITÉS</a>
-                <a href="#contact" class="hover:underline">CONTACT</a>
-            </div>
+<nav>
 
-            <div class="flex gap-4 text-2xl">
-                <a href="https://youtube.com/@Papido" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
-    </nav>
+<ul>
 
-    <!-- HERO - RECRÉATION EXACTE DE TA PHOTO -->
-    <header class="hero flex items-center pt-20">
-        <div class="hero-bg"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            
-            <!-- Livre à gauche (comme sur ta photo) -->
-            <div class="flex justify-center md:justify-end">
-                <img src="https://via.placeholder.com/380x500/111827/fff?text=COUVERTURE+PAPIDO" 
-                     alt="Couverture du livre Papido"
-                     class="shadow-2xl rounded-xl -rotate-6 max-w-[380px] w-full">
-            </div>
+<li><a href="#accueil">Accueil</a></li>
 
-            <!-- Texte central + silhouette à droite -->
-            <div class="text-center md:text-left">
-                <h1 class="title-font text-[4.8rem] md:text-[6.2rem] leading-none font-black tracking-tighter text-black">
-                    LE TOUR<br>de FRANCE<br><span class="text-red-600">À VÉLO</span>
-                </h1>
-                
-                <p class="text-4xl md:text-5xl font-bold mt-4 mb-10 leading-tight">
-                    OU L'ART DE PÉDALER<br>SANS SE PRENDRE LA TÊTE
-                </p>
+<li><a href="#livre">Le Livre</a></li>
 
-                <div class="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
-                    <a href="#livre" class="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 transition">
-                        📖 DÉCOUVRIR LE LIVRE
-                    </a>
-                    <a href="#videos" class="border-4 border-black hover:bg-black hover:text-white px-10 py-5 rounded-2xl font-bold text-xl flex items-center gap-3 transition">
-                        ▶️ VOIR LES VIDÉOS
-                    </a>
-                </div>
+<li><a href="#aventure">L'Aventure</a></li>
 
-                <!-- Icônes comme sur l'affiche -->
-                <div class="flex justify-center md:justify-start gap-8 mt-12 text-sm">
-                    <div class="flex items-center gap-2">
-                        <span class="text-3xl">📖</span>
-                        <div class="text-left leading-tight">UN ROMAN<br>AUTOBIOGRAPHIQUE</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-3xl">📸</span>
-                        <div class="text-left leading-tight">DES PHOTOS<br>DES RENCONTRES</div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-3xl">🎥</span>
-                        <div class="text-left leading-tight">DES VIDÉOS<br>DU PARCOURS</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<li><a href="#videos">Vidéos</a></li>
 
-        <!-- Silhouette du cycliste (exactement comme ta photo) -->
-        <div class="absolute bottom-0 right-0 hidden lg:block">
-            <img src="https://picsum.photos/id/1015/1100/950" 
-                 alt="Papido à vélo" 
-                 class="h-[95vh] object-contain">
-        </div>
+<li><a href="#contact">Contact</a></li>
 
-        <!-- Bloc YouTube (comme sur ta photo) -->
-        <div class="absolute top-32 right-12 hidden xl:block text-right">
-            <div class="text-3xl font-black">SUIVEZ</div>
-            <div class="text-6xl font-black text-red-600">PAPIDO</div>
-            <div class="flex items-center gap-3 mt-4 justify-end">
-                <i class="fa-brands fa-youtube text-5xl"></i>
-                <span class="text-3xl font-bold">YouTube</span>
-            </div>
-            <p class="text-xl mt-2">+ de 100 vidéos<br>du parcours !</p>
-        </div>
-    </header>
+</ul>
+
+</nav>
+
+<header id="accueil">
+
+<div>
+
+<h1>PAPIDO</h1>
+
+<h2>Le Tour de France à vélo<br>ou l'art de pédaler sans se prendre la tête</h2>
+
+<p>
+
+Un voyage authentique à travers la France, des rencontres inattendues,
+des kilomètres de bonheur, quelques galères et beaucoup d'humour.
+
+</p>
+
+<div class="boutons">
+
+<a class="bouton" href="#livre">Découvrir le livre</a>
+
+<a class="bouton" href="https://www.youtube.com/@papido-g9y/shorts" target="_blank">
+
+Voir les vidéos
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section id="livre">
+
+<h2>Le Livre</h2>
+
+<p>
+
+Et si le plus beau moyen de découvrir la France était simplement de la traverser à vélo ?
+
+</p>
+
+<p>
+
+Papido raconte une aventure humaine faite de routes de campagne,
+de cols, de villages, de rencontres improbables, de fatigue,
+de fous rires et de liberté.
+
+</p>
+
+<p>
+
+Un récit inspiré d'une aventure réelle, écrit avec simplicité,
+humour et sincérité.
+
+</p>
+
+</section>
+
+<section id="aventure">
+
+<h2>L'aventure en quelques mots</h2>
+
+<div class="stats">
+
+<div class="carte">
+
+<h3>🚴</h3>
+
+<p>Des milliers de kilomètres parcourus</p>
+
+</div>
+
+<div class="carte">
+
+<h3>📹</h3>
+
+<p>Une aventure filmée et partagée</p>
+
+</div>
+
+<div class="carte">
+
+<h3>😊</h3>
+
+<p>Des rencontres inoubliables</p>
+
+</div>
+
+<div class="carte">
+
+<h3>🇫🇷</h3>
+
+<p>Le Tour de France autrement</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="youtube" id="videos">
+
+<h2>Suivre Papido</h2>
+
+<p>
+
+Retrouvez les vidéos du voyage et les coulisses de l'aventure.
+
+</p>
+
+<a href="https://www.youtube.com/@papido-g9y/shorts" target="_blank">
+
+▶ Accéder à la chaîne YouTube
+
+</a>
+
+</section>
+
+<footer id="contact">
+
+<h2>PAPIDO</h2>
+
+<p>
+
+Le Tour de France à vélo
+
+</p>
+
+<p>
+
+www.laventurepapido.fr
+
+</p>
+
+<p>
+
+© 2026 Papido - Tous droits réservés
+
+</p>
+
+</footer>
 
 </body>
+
 </html>
