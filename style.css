@@ -29,4 +29,60 @@ nav a:hover {
     .hero-contenu img {
         max-width: 95%;
     }
+}/* MENU AMÉLIORÉ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.logo {
+    color: #ffd400;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffd400;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+    }
+}
+
