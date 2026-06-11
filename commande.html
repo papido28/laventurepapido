@@ -3,110 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commander le livre | PAPIDO</title>
+    <title>Commander - PAPIDO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
+<header>
     <nav>
         <div class="logo">PAPIDO</div>
         <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="index.html#livre">Le Livre</a></li>
-            <li><a href="index.html#voyage">Le Voyage</a></li>
-            <li><a href="index.html#videos">Vidéos</a></li>
+            <li><a href="index.html#livre">Le livre</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
-            <li><a href="commande.html" class="commander active">Commander</a></li>
+            <li><a href="index.html#videos">Vidéos</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="commande.html" class="commander active">COMMANDER</a></li>
         </ul>
     </nav>
 </header>
 
-<main>
-    <section class="presentation">
-        <div class="image-commande">
-            <img src="hero.png" alt="Livre Papido - Le Tour de France à vélo">
+<main class="commande-page">
+    <div class="commande-grid">
+        <!-- Livre à gauche -->
+        <div class="book-left">
+            <img src="photo livre laventurepapido.png" alt="Livre PAPIDO">
         </div>
-        
-        <div class="texte-commande">
-            <h1>LE TOUR DE FRANCE<br><span>À VÉLO</span></h1>
-            <h2>OU L'ART DE PÉDALER SANS SE PRENDRE LA TÊTE</h2>
+
+        <!-- Texte + Prix + Paiement -->
+        <div class="commande-right">
+            <h1>Le Tour de France à vélo</h1>
+            <h2>ou l'art de pédaler sans se prendre la tête</h2>
             
+            <p class="description">
+                Un voyage authentique à travers la France, des rencontres inattendues, 
+                des kilomètres de bonheur, quelques galères et beaucoup d'humour.
+            </p>
+
             <div class="prix">19,90 €</div>
-            
-            <div class="liste">
-                <p>📚 Livre papier de qualité</p>
-                <p>✍️ Dédicace personnalisée sur demande</p>
-                <p>🚴 Expédié directement par l’auteur</p>
+
+            <div class="features">
+                <p>📖 Livre dédicacé sur demande</p>
+                <p>🚴 Expédié directement par l'auteur</p>
                 <p>📦 Envoi rapide partout en France</p>
+                <p>✍️ Dédicace personnalisée possible</p>
             </div>
 
-            <a href="#precommande" class="precommande">
-                🚴 JE COMMANDE MON EXEMPLAIRE
-            </a>
-        </div>
-    </section>
+            <h3 class="command-title">COMMANDER MON EXEMPLAIRE</h3>
 
-    <section id="precommande" class="section">
-        <h2 style="text-align:center; margin-bottom:60px;">Choisis ton mode de paiement</h2>
-        
-        <div class="cartes-paiement">
-            <!-- STRIPE -->
-            <div class="carte">
-                <div class="icone">💳</div>
-                <h3>Paiement par carte</h3>
-                <p>Paiement 100% sécurisé</p>
-                <p>Visa • Mastercard • Apple Pay • Google Pay</p>
-                
-                <a href="https://buy.stripe.com/TON_LIEN_STRIPE" 
-                   class="btn-carte" target="_blank">
-                   🔒 PAYER PAR CARTE
-                </a>
-                <div class="montant">19,90 €</div>
-            </div>
-
-            <!-- PAYPAL -->
-            <div class="carte">
-                <div class="icone">🅿️</div>
-                <h3>Paiement avec PayPal</h3>
-                <p>Compte PayPal ou carte bancaire</p>
-                
-                <a href="https://paypal.me/TONCOMPTE/19.90" 
-                   class="btn-paypal" target="_blank">
-                   PAYER AVEC PAYPAL
-                </a>
-                <div class="montant">19,90 €</div>
-            </div>
-        </div>
-
-        <div class="infos-livraison">
-            <div class="bloc-info">
-                <div class="rond">✍️</div>
-                <div>
-                    <h3>Dédicace personnalisée</h3>
-                    <p>Indique simplement le prénom ou le message dans le commentaire de ta commande.<br>
-                    Chaque livre est signé par Papido.</p>
+            <div class="payment-options">
+                <!-- Carte -->
+                <div class="payment-card">
+                    <h4>Paiement par carte bancaire</h4>
+                    <p>Visa • Mastercard • Apple Pay • Google Pay</p>
+                    <a href="https://buy.stripe.com/TON_LIEN_STRIPE" class="btn-red" target="_blank">
+                        🔒 PAYER PAR CARTE
+                    </a>
+                    <div class="price-small">19,90 €</div>
                 </div>
-            </div>
-            
-            <div class="bloc-info">
-                <div class="rond">📦</div>
-                <div>
-                    <h3>Livraison</h3>
-                    <p>Emballage soigné • Expédition sous 48h • Suivi du colis</p>
+
+                <!-- PayPal -->
+                <div class="payment-card">
+                    <h4>Paiement avec PayPal</h4>
+                    <p>Payez avec votre compte PayPal ou par carte</p>
+                    <a href="https://paypal.me/TONCOMPTE/19.90" class="btn-blue" target="_blank">
+                        PAYER AVEC PAYPAL
+                    </a>
+                    <div class="price-small">19,90 €</div>
                 </div>
             </div>
         </div>
-
-        <div class="securite">
-            🔒 Paiement entièrement sécurisé • Vos données sont protégées
-        </div>
-    </section>
+    </div>
 </main>
 
 <footer>
-    <p>© 2026 PAPIDO - Tous droits réservés | laventurepapido.fr</p>
+    <p>© 2026 PAPIDO - Tous droits réservés</p>
 </footer>
 
 </body>
