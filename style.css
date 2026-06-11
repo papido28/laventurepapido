@@ -362,3 +362,79 @@ footer {
     }
     .book-cover { max-width: 280px; margin: 0 auto; }
 }
+/* HERO COMME TA MAQUETTE */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('hero.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+}
+
+.hero-contenu {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 140px 40px 100px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.book-cover {
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 20px 20px 40px rgba(0,0,0,0.6);
+    border-radius: 8px;
+}
+
+.text-side h1 {
+    font-size: 68px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.text-side h1 span {
+    color: #ffd400;
+}
+
+.text-side h2 {
+    font-size: 28px;
+    color: #ffd400;
+    font-style: italic;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.bouton {
+    padding: 18px 36px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jaune { background: #ffd400; color: #000; }
+.rouge { background: #d80000; color: white; }
+
+.bouton:hover {
+    transform: translateY(-8px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .book-cover { max-width: 280px; margin: 0 auto; }
+}
