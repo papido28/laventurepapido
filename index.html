@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papido - Le Tour de France à vélo</title>
-    <meta name="description" content="Papido - Le Tour de France à vélo, un voyage authentique raconté en livre et en vidéos.">
+    <title>PAPIDO - Le Tour de France à vélo</title>
+    <meta name="description" content="Le récit authentique et plein d'humour du Tour de France à vélo par Papido.">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="hero.png" type="image/png">
 </head>
 <body>
 
-<header class="hero" id="accueil">
-   <nav>
-    <div class="logo">PAPIDO</div>
-    <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="index.html#livre">Le Livre</a></li>
-        <li><a href="index.html#voyage">Le Voyage</a></li>
-        <li><a href="index.html#videos">Vidéos</a></li>
-        <li><a href="index.html#galerie">Galerie</a></li>
-        <li><a href="commande.html">Commander</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-</nav>
+<header class="hero">
+    <nav>
+        <div class="logo">PAPIDO</div>
+        <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="#livre">Le Livre</a></li>
+            <li><a href="#voyage">Le Voyage</a></li>
+            <li><a href="#videos">Vidéos</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="commande.html" class="commander">COMMANDER</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <div class="hero-contenu">
         <img src="hero.png" alt="Papido - Le Tour de France à vélo">
+        <h1>Papido - Le Tour de France à vélo</h1>
+        <p>ou l'art de pédaler sans se prendre la tête</p>
+        
         <div class="hero-boutons">
             <a href="#livre" class="bouton">📖 Découvrir le livre</a>
             <a href="commande.html" class="bouton">🛒 Commander</a>
@@ -34,25 +37,54 @@
     </div>
 </header>
 
-<!-- Les autres sections restent presque identiques, je te donne juste les ajouts importants -->
+<!-- ==================== LE LIVRE ==================== -->
+<section id="livre">
+    <h2>Le Livre</h2>
+    <p>Un récit vivant, drôle et authentique d’un Tour de France à vélo.</p>
+    <!-- Tu peux ajouter plus de texte ici -->
+</section>
 
+<!-- ==================== LE VOYAGE ==================== -->
+<section id="voyage">
+    <h2>Le Voyage</h2>
+    <p>Des cols mythiques, des rencontres improbables, des galères et des moments magiques.</p>
+</section>
+
+<!-- ==================== VIDÉOS ==================== -->
+<section id="videos">
+    <h2>Vidéos</h2>
+    <p>Découvre les meilleurs moments en vidéo :</p>
+    <a href="https://www.youtube.com/@papido-g9y/shorts" target="_blank">→ Voir la chaîne YouTube</a>
+</section>
+
+<!-- ==================== GALERIE ==================== -->
 <section id="galerie">
     <h2>Galerie</h2>
     <p>Quelques souvenirs du voyage :</p>
     <div class="galerie-grid">
-        <!-- Ajoute tes vraies photos ici -->
-        <img src="images/photo1.jpg" alt="Étape 1">
-        <img src="images/photo2.jpg" alt="Rencontre">
-        <img src="images/photo3.jpg" alt="Col de montagne">
-        <!-- etc. -->
+        <!-- Remplace par tes vraies photos -->
+        <img src="images/photo1.jpg" alt="Papido sur la route">
+        <img src="images/photo2.jpg" alt="Un col de montagne">
+        <img src="images/photo3.jpg" alt="Rencontre avec des locaux">
+        <img src="images/photo4.jpg" alt="Coucher de soleil">
+        <!-- Ajoute autant d'images que tu veux -->
     </div>
 </section>
 
-<!-- Footer amélioré -->
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Tu as une question ? Envie de partager ton propre voyage ?</p>
+    <p>Écris-moi à : <strong>contact@laventurepapido.fr</strong></p>
+</section>
+
 <footer>
-    <p><strong>PAPIDO</strong> • Le Tour de France à vélo</p>
-    <p>© 2026 - Tous droits réservés | <a href="commande.html">Commander le livre</a></p>
-    <p>www.laventurepapido.fr</p>
+    <div class="footer-content">
+        <h2>PAPIDO</h2>
+        <p>Le Tour de France à vélo</p>
+        <p>www.laventurepapido.fr</p>
+        <p>© 2026 - Tous droits réservés</p>
+    </div>
 </footer>
 
 </body>
