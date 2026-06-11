@@ -1,4 +1,4 @@
-/* Galerie */
+/* ====================== GALERIE ====================== */
 .galerie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -15,27 +15,13 @@
     transform: scale(1.03);
 }
 
-/* Améliorations globales */
-.bouton {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-nav a:hover {
-    color: #ffd400;
-    text-decoration: underline;
-}
-
-/* Petites corrections pour mobile */
-@media(max-width: 768px) {
-    .hero-contenu img {
-        max-width: 95%;
-    }
-}/* MENU AMÉLIORÉ */
+/* ====================== MENU GLOBAL ====================== */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0, 0, 0, 0.92);
     backdrop-filter: blur(8px);
     z-index: 1000;
     padding: 18px 40px;
@@ -72,17 +58,49 @@ nav a.active {
     color: #ffd400;
 }
 
-/* Mobile */
+/* Bouton COMMANDER spécial */
+.commander {
+    background: #d80000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold !important;
+}
+
+.commander:hover {
+    background: #a80000;
+    color: white !important;
+}
+
+/* ====================== MOBILE ====================== */
 @media (max-width: 900px) {
     nav {
         flex-direction: column;
-        padding: 15px;
+        padding: 15px 20px;
     }
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 15px;
         margin-top: 12px;
+    }
+    
+    .logo {
+        font-size: 32px;
     }
 }
 
+/* ====================== AMÉLIORATIONS GLOBALES ====================== */
+.bouton {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Petites corrections hero */
+@media (max-width: 768px) {
+    .hero-contenu img {
+        max-width: 95%;
+    }
+}
