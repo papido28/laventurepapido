@@ -1,74 +1,225 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commander - PAPIDO</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Commander le livre | PAPIDO</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
-    <nav>
-        <div class="logo">PAPIDO</div>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="index.html#livre">Le Livre</a></li>
-            <li><a href="index.html#galerie">Galerie</a></li>
-            <li><a href="index.html#videos">Vidéos</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="commande.html" class="commander active">COMMANDER</a></li>
-        </ul>
-    </nav>
+
+<nav class="navbar">
+
+<div class="logo">
+PAPIDO
+</div>
+
+<ul>
+
+<li><a href="index.html">Accueil</a></li>
+<li><a href="index.html#livre">Le Livre</a></li>
+<li><a href="index.html#voyage">Le Voyage</a></li>
+<li><a href="index.html#videos">Vidéos</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
 </header>
 
-<main class="commande-page">
-    <div class="commande-grid">
-        <div class="book-left">
-            <img src="photo livre laventurepapido.png" alt="Livre PAPIDO">
-        </div>
-        
-        <div class="commande-right">
-            <h1>Le Tour de France à vélo</h1>
-            <h2>ou l'art de pédaler sans se prendre la tête</h2>
-            
-            <p class="description">
-                Un voyage authentique à travers la France, des rencontres inattendues, 
-                des kilomètres de bonheur, quelques galères et beaucoup d'humour.
-            </p>
+<section class="hero">
 
-            <div class="prix">19,90 €</div>
+<div class="hero-image">
 
-            <div class="features">
-                <p>📖 Livre dédicacé sur demande</p>
-                <p>🚴 Expédié directement par l'auteur</p>
-                <p>📦 Envoi rapide partout en France</p>
-                <p>✍️ Dédicace personnalisée possible</p>
-            </div>
+<img src="hero.png" alt="Couverture du livre PAPIDO">
 
-            <h3>COMMANDER MON EXEMPLAIRE</h3>
+</div>
 
-            <div class="payment-options">
-                <div class="payment-card">
-                    <h4>Paiement par carte bancaire</h4>
-                    <a href="https://buy.stripe.com/TON_LIEN_STRIPE" class="btn-red" target="_blank">
-                        🔒 PAYER PAR CARTE
-                    </a>
-                </div>
-                <div class="payment-card">
-                    <h4>Paiement avec PayPal</h4>
-                    <a href="https://paypal.me/TONCOMPTE/19.90" class="btn-blue" target="_blank">
-                        PAYER AVEC PAYPAL
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+<div class="hero-text">
+
+<h1>
+Le Tour de France à vélo
+</h1>
+
+<h2>
+ou l'art de pédaler sans se prendre la tête
+</h2>
+
+<p>
+
+Un voyage authentique à travers la France.
+
+Des rencontres inattendues, des kilomètres de bonheur,
+
+quelques galères et beaucoup d'humour.
+
+</p>
+
+<h2 style="color:#c40000;margin-top:30px;">
+19,90 €
+</h2>
+
+<div style="margin-top:30px;">
+
+<p>📚 Livre dédicacé sur demande</p>
+
+<p>🚴 Expédié directement par l'auteur</p>
+
+<p>📦 Envoi rapide partout en France</p>
+
+<p>✍️ Dédicace personnalisée offerte</p>
+
+</div>
+
+<div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
+
+<a href="mailto:contact@laventurepapido.fr?subject=Précommande PAPIDO"
+
+class="btn-rouge">
+
+🚴 PRÉCOMMANDER MON EXEMPLAIRE
+
+</a>
+
+<a href="#"
+
+class="btn-jaune">
+
+💳 PAYER PAR CARTE
+
+</a>
+
+<a href="#"
+
+class="btn-noir">
+
+🅿️ PAYER AVEC PAYPAL
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+Pourquoi commander directement ?
+
+</h2>
+
+<div class="cartes">
+
+<div class="carte">
+
+<h3>✍️</h3>
+
+<p>
+
+Chaque livre peut être dédicacé gratuitement.
+
+</p>
+
+</div>
+
+<div class="carte">
+
+<h3>📦</h3>
+
+<p>
+
+Préparation soignée et expédition rapide partout en France.
+
+</p>
+
+</div>
+
+<div class="carte">
+
+<h3>🔒</h3>
+
+<p>
+
+Paiement sécurisé par carte bancaire ou PayPal.
+
+</p>
+
+</div>
+
+<div class="carte">
+
+<h3>🚴</h3>
+
+<p>
+
+Vous soutenez directement l'auteur et son aventure.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+
+Dédicace personnalisée
+
+</h2>
+
+<p>
+
+Indiquez simplement le prénom souhaité lors de votre commande.
+
+Chaque exemplaire est signé personnellement avant son expédition.
+
+</p>
+
+</section>
 
 <footer>
-    <p>© 2026 PAPIDO - Tous droits réservés</p>
+
+<h2>
+
+PAPIDO
+
+</h2>
+
+<p>
+
+Le Tour de France à vélo
+
+</p>
+
+<p>
+
+www.laventurepapido.fr
+
+</p>
+
+<p>
+
+© 2026 - Tous droits réservés
+
+</p>
+
 </footer>
 
 </body>
+
 </html>
