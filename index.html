@@ -6,134 +6,391 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PAPIDO - Le Tour de France à vélo</title>
+<title>Papido - Le Tour de France à vélo</title>
 
-<meta name="description"
-content="Papido - Le Tour de France à vélo, un voyage authentique raconté en livre et en vidéos.">
+<meta name="description" content="Le Tour de France à vélo ou l'art de pédaler sans se prendre la tête. Une aventure authentique, un livre, des vidéos et des rencontres.">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+background:#fafafa;
+color:#222;
+line-height:1.7;
+
+}
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#111;
+padding:15px;
+z-index:999;
+
+}
+
+nav ul{
+
+display:flex;
+justify-content:center;
+list-style:none;
+gap:35px;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+
+}
+
+nav a:hover{
+
+color:#ffd400;
+
+}
+
+header{
+
+height:100vh;
+
+background:linear-gradient(
+rgba(0,0,0,0.55),
+rgba(0,0,0,0.55)
+),
+
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+color:white;
+
+padding:20px;
+
+}
+
+header h1{
+
+font-size:70px;
+
+letter-spacing:4px;
+
+margin-bottom:20px;
+
+}
+
+header h2{
+
+font-size:35px;
+
+font-weight:300;
+
+margin-bottom:30px;
+
+}
+
+header p{
+
+max-width:700px;
+
+margin:auto;
+
+font-size:22px;
+
+}
+
+.boutons{
+
+margin-top:40px;
+
+}
+
+.bouton{
+
+display:inline-block;
+
+padding:15px 35px;
+
+margin:10px;
+
+background:#ffd400;
+
+color:#000;
+
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.bouton:hover{
+
+background:white;
+
+}
+
+section{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:90px 20px;
+
+}
+
+section h2{
+
+font-size:42px;
+
+margin-bottom:30px;
+
+text-align:center;
+
+}
+
+section p{
+
+font-size:20px;
+
+margin-bottom:20px;
+
+}
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-top:50px;
+
+}
+
+.carte{
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+text-align:center;
+
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.carte h3{
+
+font-size:45px;
+
+color:#ffd400;
+
+margin-bottom:10px;
+
+}
+
+.youtube{
+
+text-align:center;
+
+background:#111;
+
+color:white;
+
+padding:80px 20px;
+
+}
+
+.youtube a{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:18px 40px;
+
+background:red;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
+
+border-radius:8px;
+
+}
+
+.youtube a:hover{
+
+background:#cc0000;
+
+}
+
+footer{
+
+background:#111;
+
+color:white;
+
+text-align:center;
+
+padding:60px 20px;
+
+}
+
+footer p{
+
+margin:10px;
+
+}
+
+@media(max-width:768px){
+
+header h1{
+
+font-size:45px;
+
+}
+
+header h2{
+
+font-size:24px;
+
+}
+
+nav ul{
+
+gap:15px;
+
+font-size:14px;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-PAPIDO
-</div>
+<nav>
 
 <ul>
 
+<li><a href="#accueil">Accueil</a></li>
+
 <li><a href="#livre">Le Livre</a></li>
 
-<li><a href="#voyage">Le Voyage</a></li>
+<li><a href="#aventure">L'Aventure</a></li>
 
 <li><a href="#videos">Vidéos</a></li>
 
-<li><a href="#galerie">Galerie</a></li>
-
 <li><a href="#contact">Contact</a></li>
-
-<li>
-<a href="commande.html" class="btn-menu">
-Commander
-</a>
-</li>
 
 </ul>
 
 </nav>
 
-<section class="hero">
+<header id="accueil">
 
-<div class="hero-image">
+<div>
 
-<img src="hero.png" alt="Papido">
+<h1>PAPIDO</h1>
 
-</div>
-
-<div class="hero-text">
-
-<h1>
-Le Tour de France à vélo
-</h1>
-
-<h2>
-ou l'art de pédaler sans se prendre la tête
-</h2>
+<h2>Le Tour de France à vélo<br>ou l'art de pédaler sans se prendre la tête</h2>
 
 <p>
 
-Découvrez une aventure humaine exceptionnelle à travers la France.
-
-Des villages oubliés, des cols mythiques, des rencontres inattendues,
-
-des kilomètres de bonheur et beaucoup d'humour.
+Un voyage authentique à travers la France, des rencontres inattendues,
+des kilomètres de bonheur, quelques galères et beaucoup d'humour.
 
 </p>
 
-<div class="hero-buttons">
+<div class="boutons">
 
-<a href="#livre" class="btn-jaune">
+<a class="bouton" href="#livre">Découvrir le livre</a>
 
-📖 Découvrir le livre
+<a class="bouton" href="https://www.youtube.com/@papido-g9y/shorts" target="_blank">
 
-</a>
-
-<a href="commande.html" class="btn-rouge">
-
-🚴 Précommander
-
-</a>
-
-<a href="https://www.youtube.com/@papido-g9y/shorts"
-
-target="_blank"
-
-class="btn-noir">
-
-▶ Voir les vidéos
+Voir les vidéos
 
 </a>
 
 </div>
 
 </div>
-
-</section>
 
 </header>
 
-<section id="livre" class="section">
+<section id="livre">
 
 <h2>Le Livre</h2>
 
 <p>
 
-Papido raconte un Tour de France à vélo authentique,
+Et si le plus beau moyen de découvrir la France était simplement de la traverser à vélo ?
 
-fait de paysages magnifiques,
+</p>
 
-de rencontres improbables,
+<p>
 
-de fatigue,
+Papido raconte une aventure humaine faite de routes de campagne,
+de cols, de villages, de rencontres improbables, de fatigue,
+de fous rires et de liberté.
 
-de sourires
+</p>
 
-et de liberté.
+<p>
+
+Un récit inspiré d'une aventure réelle, écrit avec simplicité,
+humour et sincérité.
 
 </p>
 
 </section>
 
-<section id="voyage" class="section">
+<section id="aventure">
 
-<h2>Le Voyage</h2>
+<h2>L'aventure en quelques mots</h2>
 
-<div class="cartes">
+<div class="stats">
 
 <div class="carte">
 
@@ -145,9 +402,9 @@ et de liberté.
 
 <div class="carte">
 
-<h3>🏔️</h3>
+<h3>📹</h3>
 
-<p>Des cols et des paysages incroyables</p>
+<p>Une aventure filmée et partagée</p>
 
 </div>
 
@@ -161,9 +418,9 @@ et de liberté.
 
 <div class="carte">
 
-<h3>🎥</h3>
+<h3>🇫🇷</h3>
 
-<p>Une aventure filmée chaque jour</p>
+<p>Le Tour de France autrement</p>
 
 </div>
 
@@ -171,73 +428,25 @@ et de liberté.
 
 </section>
 
-<section id="videos" class="section">
+<section class="youtube" id="videos">
 
-<h2>Les vidéos</h2>
+<h2>Suivre Papido</h2>
 
 <p>
 
-Suivez toute l'aventure sur YouTube.
+Retrouvez les vidéos du voyage et les coulisses de l'aventure.
 
 </p>
 
-<a href="https://www.youtube.com/@papido-g9y/shorts"
+<a href="https://www.youtube.com/@papido-g9y/shorts" target="_blank">
 
-target="_blank"
-
-class="btn-rouge">
-
-▶ Accéder à la chaîne
+▶ Accéder à la chaîne YouTube
 
 </a>
 
 </section>
 
-<section id="galerie" class="section">
-
-<h2>Galerie</h2>
-
-<p>
-
-Photos du voyage,
-
-étapes,
-
-rencontres,
-
-coulisses
-
-et souvenirs.
-
-</p>
-
-</section>
-
-<section id="contact" class="section">
-
-<h2>Contact</h2>
-
-<p>
-
-Invitations,
-
-partenariats,
-
-dédicaces
-
-et informations.
-
-</p>
-
-<p>
-
-<strong>www.laventurepapido.fr</strong>
-
-</p>
-
-</section>
-
-<footer>
+<footer id="contact">
 
 <h2>PAPIDO</h2>
 
@@ -255,10 +464,12 @@ www.laventurepapido.fr
 
 <p>
 
-© 2026 - Tous droits réservés
+© 2026 Papido - Tous droits réservés
 
 </p>
 
 </footer>
 
 </body>
+
+</html>
