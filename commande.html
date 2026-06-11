@@ -8,17 +8,17 @@
 </head>
 <body>
 
-<header>
+<header class="hero">
     <nav>
         <div class="logo">PAPIDO</div>
-        <ul class="menu">
+        <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="index.html#livre">Le Livre</a></li>
             <li><a href="index.html#voyage">Le Voyage</a></li>
             <li><a href="index.html#videos">Vidéos</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
+            <li><a href="commande.html" class="commander active">Commander</a></li>
             <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="commande.html" class="commander active">COMMANDER</a></li>
         </ul>
     </nav>
 </header>
@@ -26,66 +26,56 @@
 <main>
     <section class="presentation">
         <div class="image-commande">
-            <img src="hero.png" alt="Papido - Le Tour de France à vélo">
+            <img src="hero.png" alt="Livre Papido - Le Tour de France à vélo">
         </div>
         
         <div class="texte-commande">
-            <h1>Le Tour de France à vélo</h1>
-            <h2>ou l'art de pédaler sans se prendre la tête</h2>
-            
-            <div class="trait"></div>
-            
-            <p class="resume">
-                Un voyage authentique à travers la France, des rencontres inattendues, 
-                des kilomètres de bonheur, quelques galères et beaucoup d’humour.
-            </p>
+            <h1>LE TOUR DE FRANCE<br><span>À VÉLO</span></h1>
+            <h2>OU L'ART DE PÉDALER SANS SE PRENDRE LA TÊTE</h2>
             
             <div class="prix">19,90 €</div>
             
             <div class="liste">
-                <p>📚 Livre dédicacé sur demande</p>
+                <p>📚 Livre papier de qualité</p>
+                <p>✍️ Dédicace personnalisée sur demande</p>
                 <p>🚴 Expédié directement par l’auteur</p>
                 <p>📦 Envoi rapide partout en France</p>
-                <p>✍️ Dédicace personnalisée possible</p>
             </div>
 
             <a href="#precommande" class="precommande">
-                🚴 PRÉCOMMANDER MON EXEMPLAIRE
+                🚴 JE COMMANDE MON EXEMPLAIRE
             </a>
         </div>
     </section>
 
-    <section id="precommande" class="achat">
-        <h2 class="titre-commande">COMMANDER MON EXEMPLAIRE</h2>
+    <section id="precommande" class="section">
+        <h2 style="text-align:center; margin-bottom:60px;">Choisis ton mode de paiement</h2>
         
         <div class="cartes-paiement">
-            <!-- === STRIPE === -->
-            <div class="carte carte-rouge">
+            <!-- STRIPE -->
+            <div class="carte">
                 <div class="icone">💳</div>
-                <h3>Paiement par carte bancaire</h3>
-                <p>Paiement 100 % sécurisé</p>
+                <h3>Paiement par carte</h3>
+                <p>Paiement 100% sécurisé</p>
                 <p>Visa • Mastercard • Apple Pay • Google Pay</p>
                 
                 <a href="https://buy.stripe.com/TON_LIEN_STRIPE" 
                    class="btn-carte" target="_blank">
                    🔒 PAYER PAR CARTE
                 </a>
-                
                 <div class="montant">19,90 €</div>
             </div>
 
-            <!-- === PAYPAL === -->
-            <div class="carte carte-bleue">
+            <!-- PAYPAL -->
+            <div class="carte">
                 <div class="icone">🅿️</div>
                 <h3>Paiement avec PayPal</h3>
-                <p>Payez avec votre compte PayPal</p>
-                <p>ou directement par carte bancaire</p>
+                <p>Compte PayPal ou carte bancaire</p>
                 
                 <a href="https://paypal.me/TONCOMPTE/19.90" 
                    class="btn-paypal" target="_blank">
                    PAYER AVEC PAYPAL
                 </a>
-                
                 <div class="montant">19,90 €</div>
             </div>
         </div>
@@ -95,8 +85,8 @@
                 <div class="rond">✍️</div>
                 <div>
                     <h3>Dédicace personnalisée</h3>
-                    <p>Indiquez simplement le prénom souhaité dans le commentaire de commande.<br>
-                    Chaque exemplaire est signé personnellement.</p>
+                    <p>Indique simplement le prénom ou le message dans le commentaire de ta commande.<br>
+                    Chaque livre est signé par Papido.</p>
                 </div>
             </div>
             
@@ -104,28 +94,19 @@
                 <div class="rond">📦</div>
                 <div>
                     <h3>Livraison</h3>
-                    <p>Emballage soigné • Expédition rapide partout en France</p>
+                    <p>Emballage soigné • Expédition sous 48h • Suivi du colis</p>
                 </div>
             </div>
         </div>
 
         <div class="securite">
-            <div>🔒 <strong>Paiement sécurisé</strong><br>Vos données sont protégées.</div>
-            <div class="merci">
-                Merci pour votre soutien !<br>
-                <strong>Papido</strong>
-            </div>
+            🔒 Paiement entièrement sécurisé • Vos données sont protégées
         </div>
     </section>
 </main>
 
 <footer>
-    <div class="footer-content">
-        <h2>PAPIDO</h2>
-        <p>Le Tour de France à vélo</p>
-        <p>www.laventurepapido.fr</p>
-        <p>© 2026 - Tous droits réservés</p>
-    </div>
+    <p>© 2026 PAPIDO - Tous droits réservés | laventurepapido.fr</p>
 </footer>
 
 </body>
