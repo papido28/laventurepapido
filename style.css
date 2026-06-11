@@ -340,3 +340,77 @@ footer {
         
     }
 }
+/* ====================== HERO JAUNE (comme ta 2ème photo) ====================== */
+.hero-yellow {
+    background: #ffd400;
+    color: #111;
+    min-height: 100vh;
+    padding-top: 90px;
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.book-cover {
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 25px 25px 40px rgba(0,0,0,0.25);
+    border-radius: 8px;
+}
+
+.text-side h1 {
+    font-size: 68px;
+    line-height: 1.05;
+    margin-bottom: 10px;
+}
+
+.text-side h1 span {
+    color: #d80000;
+}
+
+.text-side h2 {
+    font-size: 32px;
+    color: #111;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.bouton {
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bouton.red {
+    background: #d80000;
+    color: white;
+}
+
+.bouton.yellow {
+    background: #111;
+    color: #ffd400;
+}
+
+.bouton:hover {
+    transform: translateY(-5px);
+}
+
