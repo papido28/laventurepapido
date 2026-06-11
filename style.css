@@ -1,6 +1,6 @@
-/* ====================== HERO - IMAGE DE FOND BIEN VISIBLE ====================== */
+/* ====================== HERO - IMAGE TRÈS CLAIRE ====================== */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)), url('hero.png');
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.35)), url('hero.png');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -24,7 +24,7 @@
     font-size: 72px;
     line-height: 1.05;
     margin-bottom: 15px;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.8);   /* pour mieux lire le texte */
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9);
 }
 
 .hero-text h1 span {
@@ -36,7 +36,7 @@
     color: #ffd400;
     margin-bottom: 50px;
     font-style: italic;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9);
 }
 
 .hero-buttons {
