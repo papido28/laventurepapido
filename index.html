@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAPIDO - Le Tour de France à vélo</title>
-    <meta name="description" content="Le récit authentique et plein d'humour du Tour de France à vélo">
+    <meta name="description" content="Le récit authentique et plein d'humour du Tour de France à vélo par Papido.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,21 +36,148 @@
         </div>
     </div>
 </header>
+
+<!-- LE LIVRE -->
 <section id="livre" class="section">
     <h2>Le Livre</h2>
-    <p>Un roman autobiographique plein d'humour, de rencontres et d'émotions.</p>
+    <p>Un roman autobiographique plein d'humour, de rencontres inattendues et d'émotions.</p>
+    <p>📚 Livre papier • 19,90 € • Dédicace possible</p>
 </section>
 
+<!-- LE VOYAGE -->
+<section id="voyage" class="section">
+    <h2>Le Voyage</h2>
+    <p>Du départ jusqu'à l'arrivée : cols mythiques, galères, rires et belles rencontres sur les routes de France.</p>
+</section>
+
+<!-- VIDÉOS -->
+<section id="videos" class="section">
+    <h2>Vidéos</h2>
+    <p>Retrouvez les meilleurs moments du voyage sur YouTube :</p>
+    <a href="https://www.youtube.com/@papido-g9y/shorts" target="_blank" class="bouton rouge">▶ Voir la chaîne YouTube</a>
+</section>
+
+<!-- GALERIE -->
 <section id="galerie" class="section">
     <h2>Galerie</h2>
+    <p>Quelques souvenirs du Tour de France à vélo :</p>
     <div class="galerie-grid">
-        <!-- Ajoute tes photos ici plus tard -->
+        <img src="Images/photo1.jpg" alt="Sur la route">
+        <img src="Images/photo2.jpg" alt="Col de montagne">
+        <img src="Images/photo3.jpg" alt="Rencontre">
+        <img src="Images/photo4.jpg" alt="Paysage">
+        <!-- Ajoute tes photos ici (dans le dossier Images/) -->
     </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Une question ? Une envie de dédicace ? Écrivez-moi !</p>
+    <p><strong>contact@laventurepapido.fr</strong></p>
+</section>
+
 <footer>
-    <p>© 2026 PAPIDO - Tous droits réservés | laventurepapido.fr</p>
+    <p>© 2026 PAPIDO - Tous droits réservés | <a href="https://laventurepapido.fr">laventurepapido.fr</a></p>
 </footer>
 
 </body>
 </html>
+
+Et pour le style.css (ajoute ou remplace ces parties) :Ajoute à la fin de ton style.css :css
+
+/* HERO TRÈS CLAIR */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.25)), url('hero.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.hero-contenu {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 800px;
+}
+
+.hero-text h1 {
+    font-size: 72px;
+    line-height: 1.05;
+    margin-bottom: 15px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+}
+
+.hero-text h1 span {
+    color: #ffd400;
+}
+
+.hero-text h2 {
+    font-size: 32px;
+    color: #ffd400;
+    margin-bottom: 50px;
+    font-style: italic;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.bouton {
+    padding: 18px 36px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.jaune { background: #ffd400; color: #000; }
+.rouge { background: #d80000; color: white; }
+
+.bouton:hover {
+    transform: translateY(-6px);
+}
+
+/* Sections */
+.section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #111;
+    color: #eee;
+}
+
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+.galerie-grid img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+    background: #000;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 20px;
+}
+
