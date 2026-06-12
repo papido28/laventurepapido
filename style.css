@@ -123,6 +123,17 @@ border-radius:8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: block;
   margin: 20px auto;
+  .galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.galerie img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 200px;
+}
 }
 /* ========================= */
 /* HERO */
