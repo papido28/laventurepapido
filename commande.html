@@ -363,35 +363,32 @@ et beaucoup d'humour.
 </div>
 
 <div class="avantages">
-
-<p>📚 Livre dédicacé sur demande</p>
-
-<p>🚴 Expédié directement par l'auteur</p>
-
-<p>📦 Envoi rapide partout en France</p>
-
-<p>✍️ Dédicace personnalisée offerte</p>
-</div>
-</div>
+  <p>📚 Livre dédicacé sur demande</p>
+  <p>🚴 Expédié directement par l'auteur</p>
+  <p>📦 Envoi rapide partout en France</p>
+  <p>✍️ Dédicace personnalisée offerte</p>
 </div>
 
+<!-- BOUTON 1 : PRÉCOMMANDER + FORMULAIRE -->
 <form action="https://formspree.io/f/xpqeoyya" method="POST">
   <input type="hidden" name="_next" value="https://laventurepapido.fr/merci.html">
-  <input type="email" name="email" placeholder="Votre email" required 
-         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px;">
-  <br>
-  <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
-         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px;">
-  <br>
-  <button type="submit" class="bouton precommande">
+
+  <button type="submit" class="bouton precommande" style="display:block; width:100%; margin-bottom:15px;">
     🚴 PRÉCOMMANDER MON EXEMPLAIRE
   </button>
+
+  <input type="email" name="email" placeholder="Votre email" required 
+         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px; display:block;">
+
+  <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
+         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px; display:block;">
 </form>
 
-<div style="position:relative; display:inline-block;">
+<!-- BOUTON 2 : PAYER PAR CARTE (à venir) -->
+<div style="position:relative; display:block; width:100%; margin-bottom:15px;">
   <a href="https://buy.stripe.com/TON_LIEN_STRIPE"
      class="bouton carte"
-     style="opacity:0.5; pointer-events:none;"
+     style="display:block; width:100%; opacity:0.5; pointer-events:none;"
      target="_blank">
     💳 PAYER PAR CARTE
   </a>
@@ -412,10 +409,13 @@ et beaucoup d'humour.
     À VENIR
   </div>
 </div>
+
+<!-- BOUTON 3 : PAYER AVEC PAYPAL -->
 <a href="https://paypal.me/laventurepapido"
-class="bouton paypal"
-target="_blank">
-🅿️ PAYER AVEC PAYPAL
+   class="bouton paypal"
+   style="display:block; width:100%;"
+   target="_blank">
+  🅿️ PAYER AVEC PAYPAL
 </a>
 </div>
 </section>
