@@ -171,6 +171,51 @@ Le Tour de France à vélo
 
 </footer>
 
+  <!-- ====================== PARTAGE ====================== -->
+<h3 style="text-align:center; margin:50px 0 20px 0; font-size:24px;">❤️ Partager cette page</h3>
+
+<button id="shareNative" style="display:block; margin:0 auto 20px auto; padding:16px 30px; font-size:18px; background:#000; color:white; border:none; border-radius:50px; cursor:pointer;">
+    📱 Partager avec mes amis
+</button>
+
+<div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:600px; margin:0 auto;">
+    <a href="#" onclick="shareFacebook()" style="background:#1877f2; color:white; padding:12px 22px; border-radius:50px; text-decoration:none;">📘 Facebook</a>
+    <a href="#" onclick="shareX()" style="background:#000; color:white; padding:12px 22px; border-radius:50px; text-decoration:none;">𝕏 X</a>
+    <a href="#" onclick="shareWhatsApp()" style="background:#25d366; color:white; padding:12px 22px; border-radius:50px; text-decoration:none;">💬 WhatsApp</a>
+    <a href="#" onclick="copyLink()" style="background:#555; color:white; padding:12px 22px; border-radius:50px; text-decoration:none;">🔗 Copier le lien</a>
+</div>
+<!-- ==================================================== -->
+
+<script>
+// Script de partage
+function shareFacebook() {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+}
+function shareX() {
+    window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank');
+}
+function shareWhatsApp() {
+    window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank');
+}
+
+document.getElementById('shareNative').addEventListener('click', async () => {
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: document.title,
+                url: window.location.href
+            });
+        } catch (e) {}
+    }
+});
+
+function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('✅ Lien copié !');
+    });
+}
+</script>
+
 </body>
 
 </html>
