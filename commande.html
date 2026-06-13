@@ -374,12 +374,17 @@ et beaucoup d'humour.
 
 </div>
 
-<a href="mailto:contact@laventurepapido.fr?subject=Précommande PAPIDO"
-
-class="bouton precommande">
-
-🚴 PRÉCOMMANDER MON EXEMPLAIRE
-
+<form action="https://formspree.io/f/xxxxabcd" method="POST">
+  <input type="email" name="email" placeholder="Votre email" required 
+         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px;">
+  <br>
+  <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
+         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px;">
+  <br>
+  <button type="submit" class="bouton precommande">
+    🚴 PRÉCOMMANDER MON EXEMPLAIRE
+  </button>
+</form>
 </a>
 
 <a href="https://buy.stripe.com/TON_LIEN_STRIPE"
