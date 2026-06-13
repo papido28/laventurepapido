@@ -514,3 +514,27 @@ text-align:center;
 }
 
 }
+
+<!-- ====================== PARTAGE ====================== -->
+<h3 style="margin-top:40px;">❤️ Partager cette page</h3>
+
+<button id="shareNative" class="share-btn native" style="font-size:18px; padding:14px 24px; margin-bottom:15px;">
+    📱 Partager avec mes amis
+</button>
+
+<div class="share-buttons">
+    <a href="#" onclick="shareTo('facebook')" class="share-btn facebook">📘 Facebook</a>
+    <a href="#" onclick="shareTo('x')" class="share-btn x">𝕏 X</a>
+    <a href="#" onclick="shareTo('whatsapp')" class="share-btn whatsapp">💬 WhatsApp</a>
+    <a href="#" onclick="shareTo('linkedin')" class="share-btn linkedin">💼 LinkedIn</a>
+    <a href="#" onclick="copyLink()" class="share-btn copy">🔗 Copier le lien</a>
+</div>
+
+<style>
+    /* Colle ici le CSS que je t'ai donné précédemment */
+</style>
+
+<script>
+    // Colle ici tout le code JavaScript que je t'ai donné
+</script>
+<!-- ==================================================== -->
