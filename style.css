@@ -128,12 +128,26 @@ border-radius:8px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
 }
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
 .galerie img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   object-fit: cover;
-  height: 250px;
-  aspect-ratio: 1/1;
+  height: 120px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.galerie img:hover {
+  transform: scale(1.05);
+
 }
 }
 /* ========================= */
