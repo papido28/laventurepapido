@@ -388,12 +388,30 @@ et beaucoup d'humour.
   </button>
 </form>
 
-<a href="https://buy.stripe.com/TON_LIEN_STRIPE"
-class="bouton carte"
-target="_blank">
-💳 PAYER PAR CARTE
-</a>
-
+<div style="position:relative; display:inline-block;">
+  <a href="https://buy.stripe.com/TON_LIEN_STRIPE"
+     class="bouton carte"
+     style="opacity:0.5; pointer-events:none;"
+     target="_blank">
+    💳 PAYER PAR CARTE
+  </a>
+  <div style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) rotate(-15deg);
+    background:#c40000;
+    color:white;
+    padding:6px 20px;
+    font-weight:bold;
+    font-size:18px;
+    border-radius:5px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    white-space:nowrap;
+  ">
+    À VENIR
+  </div>
+</div>
 <a href="https://paypal.me/laventurepapido"
 class="bouton paypal"
 target="_blank">
