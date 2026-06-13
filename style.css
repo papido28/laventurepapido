@@ -113,7 +113,8 @@ border-radius:8px;
 .texte-centre {
   text-align: center;
 }
-* ========================= */
+
+/* ========================= */
 /* PHOTOS */
 /* ========================= */
 .photo-voyage {
@@ -123,11 +124,8 @@ border-radius:8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: block;
   margin: 20px auto;
-  .galerie {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
 }
+
 .galerie {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -147,9 +145,8 @@ border-radius:8px;
 
 .galerie img:hover {
   transform: scale(1.05);
+}
 
-}
-}
 /* ========================= */
 /* HERO */
 /* ========================= */
