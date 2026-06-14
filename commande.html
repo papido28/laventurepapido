@@ -373,7 +373,7 @@ et beaucoup d'humour.
 <!-- BOUTON 1 : PRÉCOMMANDER + FORMULAIRE -->
 <form action="https://formspree.io/f/xpqeoyya" method="POST">
   <input type="hidden" name="_next" value="https://laventurepapido.fr/merci.html">
-
+  
   <button type="submit" class="bouton precommande" style="display:block; width:100%; margin-bottom:15px;">
     🚴 PRÉCOMMANDER MON EXEMPLAIRE
   </button>
@@ -381,8 +381,23 @@ et beaucoup d'humour.
   <input type="email" name="email" placeholder="Votre email" required 
          style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px; display:block;">
 
-  <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
-         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px; display:block;">
+  <div style="display:flex; gap:10px; align-items:center; max-width:400px; margin-bottom:15px;">
+    <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
+           style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%;">
+    <button type="submit" style="
+      padding:15px 20px;
+      font-size:18px;
+      font-weight:bold;
+      background:#ffd400;
+      color:#111;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:.3s;
+    ">↵</button>
+  </div>
+
 </form>
 
 <!-- BOUTON 2 : PAYER PAR CARTE (à venir) -->
@@ -393,74 +408,42 @@ et beaucoup d'humour.
      target="_blank">
     💳 PAYER PAR CARTE
   </a>
-  <div style="display:flex; gap:10px; align-items:center; max-width:400px; margin-bottom:15px;">
-  <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
-         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%;">
-  <button type="submit" style="
-    padding:15px 20px;
-    font-size:18px;
+  <div style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%) rotate(-15deg);
+    background:#c40000;
+    color:white;
+    padding:6px 20px;
     font-weight:bold;
-    background:#ffd400;
-    color:#111;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+    font-size:18px;
+    border-radius:5px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
     white-space:nowrap;
-    transition:.3s;
-  ">
-    ↵
-  </button>
+  ">À VENIR</div>
 </div>
 
 <!-- BOUTON 3 : PAYER AVEC PAYPAL -->
 <a href="https://paypal.me/laventurepapido"
    class="bouton paypal"
-   style="display:block; width:100%;"
+   style="display:block; width:100%; margin-bottom:15px;"
    target="_blank">
   🅿️ PAYER AVEC PAYPAL
 </a>
-</div>
+
 </section>
+
 <section class="infos">
-
-<div class="bloc">
-
-<h2>
-
-✍️ Dédicace personnalisée
-
-</h2>
-
-<p>
-
-Indiquez simplement le prénom souhaité.
-
-Chaque exemplaire est signé personnellement avant son expédition.
-
-</p>
-
-</div>
-
-<div class="bloc">
-
-<h2>
-
-🔒 Paiement sécurisé
-
-</h2>
-
-<p>
-
-Paiement sécurisé par carte bancaire ou PayPal.
-
-Vos données sont protégées.
-
-</p>
-
-</div>
-
+  <div class="bloc">
+    <h2>✍️ Dédicace personnalisée</h2>
+    <p>Indiquez simplement le prénom souhaité. Chaque exemplaire est signé personnellement avant son expédition.</p>
+  </div>
+  <div class="bloc">
+    <h2>🔒 Paiement sécurisé</h2>
+    <p>Paiement sécurisé par carte bancaire ou PayPal. Vos données sont protégées.</p>
+  </div>
 </section>
-
 <footer>
 
 <h2>
