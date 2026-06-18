@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Bloquer les dossiers inutiles (si tu en ajoutes plus tard)
+Disallow: /assets/
+Disallow: /private/
+
+# Sitemap (à décommenter quand tu auras créé le sitemap)
+# Sitemap: https://laventurepapido.fr/sitemap.xml
+
+# Informations pour les crawlers
+Crawl-delay: 1
