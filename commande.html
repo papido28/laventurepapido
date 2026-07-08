@@ -15,7 +15,15 @@
         .payment-buttons { display: none; margin-top: 30px; }
         .btn-principal { width: 100%; padding: 18px; font-size: 22px; font-weight: bold; background: #c40000; color: white; border: none; border-radius: 10px; margin: 10px 0; cursor: pointer; }
         .btn-paypal { width: 100%; padding: 16px; font-size: 20px; font-weight: bold; background: #003087; color: white; border: none; border-radius: 10px; cursor: pointer; }
-        .total { font-size: 26px; text-align:center; margin:25px 0; color:#c40000; }
+        
+        /* Prix plus gros */
+        .prix-total {
+            font-size: 38px;
+            font-weight: bold;
+            color: #c40000;
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +50,7 @@
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
             
-            <div class="prix">19,90 € + 3,10 € de port</div>
+            <div class="prix-total">19,90 € + 3,10 € de port = <strong>23,00 €</strong></div>
 
             <form id="orderForm">
                 <label>Prénom *</label>
@@ -65,8 +73,6 @@
 
                 <label>Dédicace personnalisée (facultatif)</label>
                 <textarea id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
-
-                <div class="total">Total à payer : <strong>23,00 €</strong></div>
 
                 <div id="paymentButtons" class="payment-buttons">
                     <button type="button" class="btn-principal" onclick="payerCarte()">
