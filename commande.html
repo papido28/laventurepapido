@@ -11,8 +11,8 @@
         .hero-commande { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
         .hero-commande img { width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
         label { display:block; margin:15px 0 6px; font-weight:bold; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #999; border-radius: 8px; font-size: 16px; }
-        .payment-buttons { display: none; margin-top: 30px; } /* Caché au départ */
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #999; border-radius: 8px; font-size: 16px; }
+        .payment-buttons { display: none; margin-top: 30px; }
         .btn-principal { width: 100%; padding: 18px; font-size: 22px; font-weight: bold; background: #c40000; color: white; border: none; border-radius: 10px; margin: 10px 0; cursor: pointer; }
         .btn-paypal { width: 100%; padding: 16px; font-size: 20px; font-weight: bold; background: #003087; color: white; border: none; border-radius: 10px; cursor: pointer; }
         .total { font-size: 26px; text-align:center; margin:25px 0; color:#c40000; }
@@ -42,9 +42,16 @@
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
             
-            <div class="prix">19,90 € + 3,10 € port = <strong>23,00 €</strong></div>
-
             <form id="orderForm">
+                <label>Nombre d'exemplaires</label>
+                <select id="quantite">
+                    <option value="1">1 exemplaire</option>
+                    <option value="2">2 exemplaires</option>
+                    <option value="3">3 exemplaires</option>
+                    <option value="4">4 exemplaires</option>
+                    <option value="5">5 exemplaires</option>
+                </select>
+
                 <label>Prénom *</label>
                 <input type="text" id="prenom" required>
 
@@ -66,9 +73,8 @@
                 <label>Dédicace personnalisée (facultatif)</label>
                 <textarea id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
-                <div class="total">Total à payer : <strong>23,00 €</strong></div>
+                <div class="total">Total à payer : <strong id="totalPrice">23,00</strong> €</div>
 
-                <!-- Boutons de paiement qui apparaissent après remplissage -->
                 <div id="paymentButtons" class="payment-buttons">
                     <button type="button" class="btn-principal" onclick="payerCarte()">
                         💳 PAYER PAR CARTE BANCAIRE
@@ -83,33 +89,32 @@
 </div>
 
 <script>
-// Afficher les boutons quand le formulaire est rempli
 const form = document.getElementById('orderForm');
 const paymentButtons = document.getElementById('paymentButtons');
+const quantiteSelect = document.getElementById('quantite');
+const totalPrice = document.getElementById('totalPrice');
 
-form.addEventListener('input', function() {
-    const fields = ['prenom', 'nom', 'adresse', 'codepostal', 'ville', 'email'];
-    let filled = true;
+function updateTotal() {
+    const qty = parseInt(quantiteSelect.value);
+    const total = (qty * 23).toFixed(2);
+    totalPrice.textContent = total.replace('.', ',');
+}
 
-    fields.forEach(field => {
-        if (!document.getElementById(field).value.trim()) filled = false;
-    });
-
+quantiteSelect.addEventListener('change', updateTotal);
+form.addEventListener('input', () => {
+    const fields = ['prenom','nom','adresse','codepostal','ville','email'];
+    let filled = fields.every(f => document.getElementById(f).value.trim() !== '');
     paymentButtons.style.display = filled ? 'block' : 'none';
 });
 
-// Fonctions des boutons
+updateTotal();
+
 function payerCarte() {
-    const prenom = document.getElementById('prenom').value;
-    const nom = document.getElementById('nom').value;
-    alert(`Merci ${prenom} !\n\nRedirection vers le paiement par carte...`);
-    // Remplace par ton vrai lien Stripe
-    window.location.href = "TON_LIEN_STRIPE_ICI";
+    const qty = quantiteSelect.value;
+    window.location.href = "https://buy.stripe.com/9B6eVc0KHcURg7caYK8g000?quantity=" + qty;
 }
 
 function payerPaypal() {
-    const prenom = document.getElementById('prenom').value;
-    alert(`Merci ${prenom} !\n\nRedirection vers PayPal...`);
     window.location.href = "https://paypal.me/laventurepapido";
 }
 </script>
