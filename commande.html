@@ -11,7 +11,7 @@
         .hero-commande { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
         .hero-commande img { width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
         label { display:block; margin:15px 0 6px; font-weight:bold; }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #999; border-radius: 8px; font-size: 16px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #999; border-radius: 8px; font-size: 16px; }
         .payment-buttons { display: none; margin-top: 30px; }
         .btn-principal { width: 100%; padding: 18px; font-size: 22px; font-weight: bold; background: #c40000; color: white; border: none; border-radius: 10px; margin: 10px 0; cursor: pointer; }
         .btn-paypal { width: 100%; padding: 16px; font-size: 20px; font-weight: bold; background: #003087; color: white; border: none; border-radius: 10px; cursor: pointer; }
@@ -42,16 +42,9 @@
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
             
-            <form id="orderForm">
-                <label>Nombre d'exemplaires</label>
-                <select id="quantite">
-                    <option value="1">1 exemplaire</option>
-                    <option value="2">2 exemplaires</option>
-                    <option value="3">3 exemplaires</option>
-                    <option value="4">4 exemplaires</option>
-                    <option value="5">5 exemplaires</option>
-                </select>
+            <div class="prix">19,90 € + 3,10 € de port</div>
 
+            <form id="orderForm">
                 <label>Prénom *</label>
                 <input type="text" id="prenom" required>
 
@@ -73,7 +66,7 @@
                 <label>Dédicace personnalisée (facultatif)</label>
                 <textarea id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
-                <div class="total">Total à payer : <strong id="totalPrice">23,00</strong> €</div>
+                <div class="total">Total à payer : <strong>23,00 €</strong></div>
 
                 <div id="paymentButtons" class="payment-buttons">
                     <button type="button" class="btn-principal" onclick="payerCarte()">
@@ -91,27 +84,15 @@
 <script>
 const form = document.getElementById('orderForm');
 const paymentButtons = document.getElementById('paymentButtons');
-const quantiteSelect = document.getElementById('quantite');
-const totalPrice = document.getElementById('totalPrice');
 
-function updateTotal() {
-    const qty = parseInt(quantiteSelect.value);
-    const total = (qty * 23).toFixed(2);
-    totalPrice.textContent = total.replace('.', ',');
-}
-
-quantiteSelect.addEventListener('change', updateTotal);
 form.addEventListener('input', () => {
     const fields = ['prenom','nom','adresse','codepostal','ville','email'];
     let filled = fields.every(f => document.getElementById(f).value.trim() !== '');
     paymentButtons.style.display = filled ? 'block' : 'none';
 });
 
-updateTotal();
-
 function payerCarte() {
-    const qty = quantiteSelect.value;
-    window.location.href = "https://buy.stripe.com/9B6eVc0KHcURg7caYK8g000?quantity=" + qty;
+    window.location.href = "https://buy.stripe.com/9B6eVc0KHcURg7caYK8g000";
 }
 
 function payerPaypal() {
