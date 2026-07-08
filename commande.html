@@ -7,45 +7,59 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        body { margin:0; font-family: Arial, sans-serif; background:#f8f8f8; }
-        .container {
+        .commande-container {
             max-width: 700px;
             margin: 40px auto;
             padding: 40px 30px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        h1 { color: #c40000; text-align:center; }
-        .prix { font-size: 52px; font-weight:bold; color:#c40000; text-align:center; margin:20px 0; }
-        label { display:block; margin:18px 0 6px; font-weight:bold; }
+        h1 { color: #c40000; text-align:center; margin-bottom:10px; }
+        h2 { text-align:center; color:#333; }
+        .prix { font-size: 48px; font-weight:bold; color:#c40000; text-align:center; margin:20px 0; }
+        label { display:block; margin:15px 0 6px; font-weight:bold; }
         input, textarea {
             width: 100%;
-            padding: 14px;
-            border: 1px solid #aaa;
+            padding: 12px;
+            border: 1px solid #999;
             border-radius: 8px;
-            font-size: 17px;
+            font-size: 16px;
         }
         button {
             width: 100%;
-            padding: 20px;
-            font-size: 24px;
+            padding: 18px;
+            font-size: 22px;
             font-weight: bold;
             background: #c40000;
             color: white;
             border: none;
             border-radius: 10px;
-            margin-top: 30px;
+            margin-top: 25px;
             cursor: pointer;
         }
-        .total { font-size: 28px; text-align:center; margin:30px 0; color:#c40000; }
+        .total { font-size: 26px; text-align:center; margin:30px 0; color:#c40000; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<!-- === TON HEADER (identique à ton site) === -->
+<header>
+    <div class="navbar">
+        <div class="logo">PAPIDO</div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#livre">Le Livre</a></li>
+            <li><a href="index.html#videos">Vidéos</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- === FORMULAIRE === -->
+<div class="commande-container">
     <h1>Commander le livre</h1>
-    <h2 style="text-align:center;">Le Tour de France à vélo</h2>
+    <h2>Le Tour de France à vélo</h2>
     
     <div class="prix">19,90 €</div>
 
@@ -58,7 +72,7 @@
         <label>Nom *</label>
         <input type="text" name="nom" required>
 
-        <label>Adresse complète (livraison) *</label>
+        <label>Adresse complète *</label>
         <input type="text" name="adresse" required>
 
         <label>Code postal *</label>
@@ -74,20 +88,20 @@
         <input type="email" name="email" required>
 
         <label>Dédicace personnalisée (facultatif)</label>
-        <textarea name="dedicace" rows="4" placeholder="Exemple : Pour Lucas, que l'aventure te porte..."></textarea>
+        <textarea name="dedicace" rows="4" placeholder="Exemple : Pour Lucas..."></textarea>
 
         <div class="total">
-            Total : <strong>23,00 €</strong> <small>(livre + port)</small>
+            Total à payer : <strong>23,00 €</strong>
         </div>
 
         <button type="submit">
-            💳 COMMANDER ET PAYER 23,00 €
+            💳 COMMANDER ET PAYER MAINTENANT
         </button>
     </form>
 
     <p style="text-align:center; margin-top:25px;">
-        Ou payer directement : 
-        <a href="https://paypal.me/laventurepapido" target="_blank" style="color:#003087;">PayPal</a>
+        Ou payer directement avec PayPal : 
+        <a href="https://paypal.me/laventurepapido" target="_blank">paypal.me/laventurepapido</a>
     </p>
 </div>
 
