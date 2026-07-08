@@ -28,7 +28,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         h1 { color: #c40000; text-align:center; }
-        h2 { text-align:center; color:#333; margin-bottom:20px; }
+        h2 { text-align:center; color:#333; }
         .prix { font-size: 48px; font-weight:bold; color:#c40000; text-align:center; margin:20px 0; }
         label { display:block; margin:15px 0 6px; font-weight:bold; }
         input, textarea {
@@ -38,7 +38,7 @@
             border-radius: 8px;
             font-size: 16px;
         }
-        button {
+        .btn-principal {
             width: 100%;
             padding: 18px;
             font-size: 22px;
@@ -47,19 +47,29 @@
             color: white;
             border: none;
             border-radius: 10px;
-            margin-top: 25px;
+            margin: 25px 0 15px 0;
             cursor: pointer;
         }
-        .total { font-size: 26px; text-align:center; margin:30px 0; color:#c40000; }
-
-        @media (max-width: 768px) {
-            .hero-commande { grid-template-columns: 1fr; text-align:center; }
+        .btn-paypal {
+            width: 100%;
+            padding: 16px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #003087;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
+        .total { font-size: 26px; text-align:center; margin:25px 0; color:#c40000; }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="navbar">
         <div class="logo">PAPIDO</div>
@@ -74,12 +84,10 @@
 
 <div class="commande-container">
     <div class="hero-commande">
-        <!-- Photo du livre -->
         <div>
             <img src="photo livre.jpg" alt="Le livre PAPIDO">
         </div>
 
-        <!-- Formulaire -->
         <div>
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
@@ -111,23 +119,25 @@
                 <input type="email" name="email" required>
 
                 <label>Dédicace personnalisée (facultatif)</label>
-                <textarea name="dedicace" rows="4" placeholder="Exemple : Pour Lucas, que cette aventure t'inspire..."></textarea>
+                <textarea name="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
                 <div class="total">
-                    Total à payer : <strong>23,00 €</strong> <small>(livre + 3,10€ port)</small>
+                    Total à payer : <strong>23,00 €</strong>
                 </div>
 
-                <button type="submit">
+                <button type="submit" class="btn-principal">
                     💳 COMMANDER ET PAYER MAINTENANT
                 </button>
             </form>
+
+            <!-- Bouton PayPal -->
+            <a href="https://paypal.me/laventurepapido" target="_blank">
+                <button class="btn-paypal">
+                    🅿️ PAYER AVEC PAYPAL
+                </button>
+            </a>
         </div>
     </div>
-
-    <p style="text-align:center; margin-top:30px;">
-        Ou payer directement avec PayPal : 
-        <a href="https://paypal.me/laventurepapido" target="_blank" style="color:#003087;">paypal.me/laventurepapido</a>
-    </p>
 </div>
 
 </body>
