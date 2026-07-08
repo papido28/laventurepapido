@@ -1,476 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Commander le livre | PAPIDO</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-body{
-
-margin:0;
-
-font-family:Arial,Helvetica,sans-serif;
-
-background:#f3f3f3;
-
-color:#111;
-
-}
-
-header{
-
-background:#000;
-
-padding:20px 0;
-
-}
-
-.navbar{
-
-max-width:1400px;
-
-margin:auto;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:0 30px;
-
-}
-
-.logo{
-
-font-size:60px;
-
-font-weight:bold;
-
-font-style:italic;
-
-color:#ffd400;
-
-}
-
-.navbar ul{
-
-display:flex;
-
-gap:25px;
-
-list-style:none;
-
-}
-
-.navbar a{
-
-color:white;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-.hero{
-
-max-width:1400px;
-
-margin:auto;
-
-padding:60px 30px;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:70px;
-
-align-items:center;
-
-}
-
-.hero img{
-
-width:100%;
-
-max-width:550px;
-
-display:block;
-
-margin:auto;
-
-box-shadow:0 20px 50px rgba(0,0,0,.25);
-
-border-radius:15px;
-
-}
-
-h1{
-
-font-size:70px;
-
-margin-bottom:10px;
-
-}
-
-h2{
-
-font-size:34px;
-
-color:#c40000;
-
-font-style:italic;
-
-font-weight:normal;
-
-margin-bottom:30px;
-
-}
-
-.resume{
-
-font-size:26px;
-
-line-height:1.7;
-
-}
-
-.prix{
-
-font-size:70px;
-
-font-weight:bold;
-
-color:#c40000;
-
-margin:40px 0;
-
-}
-
-.avantages p{
-
-font-size:24px;
-
-margin:15px 0;
-
-}
-
-.bouton{
-
-display:block;
-
-text-align:center;
-
-padding:22px;
-
-font-size:28px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-border-radius:10px;
-
-margin-top:25px;
-
-transition:.3s;
-
-}
-
-.precommande{
-
-background:#d40000;
-
-color:white;
-
-}
-
-.precommande:hover{
-
-background:#a50000;
-
-}
-
-.carte{
-
-background:#ffd400;
-
-color:#111;
-
-}
-
-.paypal{
-
-background:#003087;
-
-color:white;
-
-}
-
-.infos{
-
-max-width:1200px;
-
-margin:50px auto;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:30px;
-
-padding:20px;
-
-}
-
-.bloc{
-
-background:white;
-
-padding:30px;
-
-border-radius:15px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.10);
-
-}
-
-footer{
-
-background:#111;
-
-color:white;
-
-text-align:center;
-
-padding:50px;
-
-margin-top:60px;
-
-}
-
-@media(max-width:900px){
-
-.hero{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.infos{
-
-grid-template-columns:1fr;
-
-}
-
-h1{
-
-font-size:48px;
-
-}
-
-.prix{
-
-font-size:48px;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commander le livre | PAPIDO</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Style simple et sûr */
+        .commande-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 { text-align: center; color: #c40000; }
+        .prix { font-size: 45px; font-weight: bold; text-align: center; margin: 20px 0; color: #c40000; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #999;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            background: #c40000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+        .total { font-size: 26px; text-align: center; margin: 30px 0; }
+    </style>
 </head>
-
 <body>
 
-<header>
+<div class="commande-container">
+    <h1>Commander le livre</h1>
+    <h2>Le Tour de France à vélo</h2>
+    
+    <div class="prix">19,90 € + 3,10 € de port</div>
 
-<div class="navbar">
+    <form action="https://formspree.io/f/xpqeoyya" method="POST">
+        <input type="hidden" name="_next" value="https://laventurepapido.fr/merci.html">
 
-<div class="logo">
+        <label>Prénom *</label>
+        <input type="text" name="prenom" required>
 
-PAPIDO
+        <label>Nom *</label>
+        <input type="text" name="nom" required>
 
+        <label>Adresse complète *</label>
+        <input type="text" name="adresse" required>
+
+        <label>Code postal *</label>
+        <input type="text" name="codepostal" required>
+
+        <label>Ville *</label>
+        <input type="text" name="ville" required>
+
+        <label>Téléphone</label>
+        <input type="tel" name="telephone">
+
+        <label>Email *</label>
+        <input type="email" name="email" required>
+
+        <label>Dédicace personnalisée (facultatif)</label>
+        <textarea name="dedicace" rows="4" placeholder="Ex: Pour Sophie..."></textarea>
+
+        <div class="total">
+            <strong>Total à payer : 23,00 €</strong>
+        </div>
+
+        <button type="submit">
+            💳 Commander et payer maintenant
+        </button>
+    </form>
+
+    <p style="text-align:center; margin-top:25px;">
+        Ou payer directement avec PayPal : 
+        <a href="https://paypal.me/laventurepapido" target="_blank">paypal.me/laventurepapido</a>
+    </p>
 </div>
-
-<ul>
-
-<li><a href="index.html">Accueil</a></li>
-
-<li><a href="index.html#livre">Le Livre</a></li>
-
-<li><a href="index.html#videos">Vidéos</a></li>
-
-<li><a href="index.html#contact">Contact</a></li>
-
-</ul>
-
-</div>
-
-</header>
-
-<section class="hero">
-
-<div>
-
-<img src="photo livre.jpg" alt="Livre Papido">
-
-</div>
-
-<div>
-
-<h1>
-
-Le Tour de France à vélo
-
-</h1>
-
-<h2>
-
-ou l'art de pédaler sans se prendre la tête
-
-</h2>
-
-<p class="resume">
-
-Un voyage authentique à travers la France.
-
-Des rencontres inattendues,
-
-des kilomètres de bonheur,
-
-quelques galères
-
-et beaucoup d'humour.
-
-</p>
-
-<div class="prix">
-  19,90 €
- 
-</div>
-
-<div class="avantages">
-  <p>📚 Livre dédicacé sur demande</p>
-  <p>🚴 Expédié directement par l'auteur</p>
-  <p>📦 Envoi rapide partout en France</p>
-  <p>✍️ Dédicace personnalisée offerte</p>
-  <p>🚚 Frais de port : 3,10 €</p>
-</div>
-
-<!-- BOUTON 1 : PRÉCOMMANDER + FORMULAIRE -->
-<form action="https://formspree.io/f/xpqeoyya" method="POST">
-  <input type="hidden" name="_next" value="https://laventurepapido.fr/merci.html">
-  
-  <button type="submit" class="bouton precommande" style="display:block; width:100%; margin-bottom:15px;">
-    🚴 PRÉCOMMANDER MON EXEMPLAIRE
-  </button>
-
-  <input type="email" name="email" placeholder="Votre email" required 
-         style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:400px; margin-bottom:15px; display:block;">
-
-  <div style="display:flex; gap:10px; align-items:center; max-width:400px; margin-bottom:15px;">
-    <input type="text" name="prenom" placeholder="Prénom pour la dédicace (facultatif)"
-           style="padding:15px; font-size:18px; border-radius:8px; border:1px solid #ccc; width:100%;">
-    <button type="submit" style="
-      padding:15px 20px;
-      font-size:36px;
-      font-weight:bold;
-      background:#ffd400;
-      color:#111;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      white-space:nowrap;
-      transition:.3s;
-    ">↵</button>
-  </div>
-
-</form>
-
-<!-- BOUTON 2 : PAYER PAR CARTE (à venir) -->
-<div style="position:relative; display:block; width:100%; margin-bottom:15px;">
-  <a href="https://buy.stripe.com/TON_LIEN_STRIPE"
-     class="bouton carte"
-     style="display:block; width:100%; opacity:0.5; pointer-events:none;"
-     target="_blank">
-    💳 PAYER PAR CARTE
-  </a>
-  <div style="
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%) rotate(-15deg);
-    background:#c40000;
-    color:white;
-    padding:6px 20px;
-    font-weight:bold;
-    font-size:18px;
-    border-radius:5px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    white-space:nowrap;
-  ">À VENIR</div>
-</div>
-
-<!-- BOUTON 3 : PAYER AVEC PAYPAL -->
-<a href="https://paypal.me/laventurepapido"
-   class="bouton paypal"
-   style="display:block; width:100%; margin-bottom:15px;"
-   target="_blank">
-  🅿️ PAYER AVEC PAYPAL
-</a>
-
-</section>
-
-<section class="infos">
-  <div class="bloc">
-    <h2>✍️ Dédicace personnalisée</h2>
-    <p>Indiquez simplement le prénom souhaité. Chaque exemplaire est signé personnellement avant son expédition.</p>
-  </div>
-  <div class="bloc">
-    <h2>🔒 Paiement sécurisé</h2>
-    <p>Paiement sécurisé par carte bancaire ou PayPal. Vos données sont protégées.</p>
-  </div>
-</section>
-<footer>
-
-<h2>
-
-PAPIDO
-
-</h2>
-
-<p>
-
-Le Tour de France à vélo
-
-</p>
-
-<p>
-
-www.laventurepapido.fr
-
-</p>
-
-<p>
-
-© 2026 - Tous droits réservés
-
-</p>
-
-</footer>
 
 </body>
-
 </html>
