@@ -65,59 +65,30 @@ PAPIDO
     <a href="commande.html" class="btn-rouge">📖 Découvrir le livre</a>
 </section>
 
-<!-- ==================== SECTION AVIS NIVEAU 3 ==================== -->
-<section id="avis" class="section" style="background:#f8f9fa;">
-    <h2 style="text-align:center;">Ce que disent les lecteurs</h2>
+<!-- ==================== SECTION AVIS (Version propre Niveau 3) ==================== -->
+<section id="avis" class="section" style="background:#f8f9fa; padding:70px 20px;">
+    <h2 style="text-align:center; margin-bottom:30px;">Ce que disent les lecteurs</h2>
     
     <div style="text-align:center; margin:30px 0;">
         <div id="big-stars" style="color:#ffd700; font-size:3.2rem;">★★★★★</div>
         <p style="font-size:1.7rem; margin:10px 0;">
-            <strong id="avg-rating">4.92</strong>/5 — 
+            <strong id="avg-rating">4.9</strong>/5 — 
             <span id="total-reviews">(42 avis vérifiés)</span>
         </p>
     </div>
 
-    <div style="text-align:center; margin:25px 0;">
+    <div style="text-align:center; margin:25px 0 40px 0;">
         <button class="filter-btn active" data-filter="all">Tous</button>
         <button class="filter-btn" data-filter="5">5 ★</button>
         <button class="filter-btn" data-filter="4">4 ★</button>
     </div>
 
-    <div class="swiper avis-swiper" style="max-width:1100px; margin:0 auto; padding:20px 0;">
+    <div class="swiper avis-swiper" style="max-width:1100px; margin:0 auto;">
         <div class="swiper-wrapper" id="avis-container"></div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
 <!-- ============================================================ -->
-    <!-- ====================== SECTION AVIS AVANCÉE ====================== -->
-<section id="avis" class="section" style="background:#f8f9fa; padding:80px 20px;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="text-align:center; margin-bottom:20px;">❤️ Ce que disent les lecteurs</h2>
-    
-    <!-- Note moyenne -->
-    <div style="text-align:center; margin:30px 0;">
-      <div id="big-stars" style="color:#ffd700; font-size:3rem;">★★★★★</div>
-      <p style="font-size:1.6rem; margin:10px 0;">
-        <strong id="avg-rating">4.9</strong>/5 — <span id="total-reviews">38 avis</span>
-      </p>
-    </div>
-
-    <!-- Filtres -->
-    <div style="text-align:center; margin:30px 0;">
-      <button class="filter-btn active" data-filter="all" style="padding:10px 20px; margin:5px;">Tous</button>
-      <button class="filter-btn" data-filter="5" style="padding:10px 20px; margin:5px;">5 ★</button>
-      <button class="filter-btn" data-filter="4" style="padding:10px 20px; margin:5px;">4 ★</button>
-    </div>
-
-    <!-- Carrousel -->
-    <div class="swiper avis-swiper" style="max-width:1100px; margin:0 auto;">
-      <div class="swiper-wrapper" id="avis-container"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-<!-- ============================================================ -->
-
 
 <section id="voyage" class="section">
 
@@ -254,128 +225,21 @@ Le Tour de France à vélo
 </div>
 <!-- ==================================================== -->
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
-// Script de partage
-function shareFacebook() {
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
-}
-function shareX() {
-    window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank');
-}
-function shareWhatsApp() {
-    window.open('https://wa.me/?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank');
-}
-
-document.getElementById('shareNative').addEventListener('click', async () => {
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: document.title,
-                url: window.location.href
-            });
-        } catch (e) {}
-    }
-});
-
-function copyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-        alert('✅ Lien copié !');
-    });
-}
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-// === AVIS PAPIDO ===
+// === AVIS PAPIDO - Version corrigée ===
 const avis = [
-  {
-    stars: 5,
-    text: "Un livre magnifique qui donne envie de prendre la route. On rit, on est ému, on a l’impression d’être avec Papido sur son vélo.",
-    name: "Sophie L.",
-    location: "Toulouse",
-    date: "Juillet 2026"
-  },
- 
-  {
-    stars: 5,
-    text: "Un récit qui fait du bien. On sent la route, les rencontres, la liberté. À offrir sans hésiter.",
-    name: "Julie Moreau",
-    location: "Lyon",
-    date: "Juillet 2026"
-  },
-  {
-    stars: 4,
-    text: "Très beau témoignage. Quelques passages un peu longs mais l’ensemble est vraiment touchant.",
-    name: "Pierre Renault",
-    location: "Normandie",
-    date: "Mai 2026"
-  }
-  // Tu peux ajouter d'autres avis ici très facilement
-];
-
-function generateStars(n) {
-  return "★".repeat(n);
-}
-
-let swiperInstance;
-
-function displayAvis(filtered) {
-  const container = document.getElementById('avis-container');
-  container.innerHTML = '';
-
-  filtered.forEach(a => {
-    const slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-    slide.innerHTML = `
-      <div style="background:white; padding:30px; border-radius:16px; margin:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); height:100%;">
-        <div style="color:#ffd700; font-size:2rem;">${generateStars(a.stars)}</div>
-        <p style="font-style:italic; margin:20px 0;">« ${a.text} »</p>
-        <strong>${a.name}</strong><br>
-        <small>${a.location} — ${a.date}</small>
-      </div>
-    `;
-    container.appendChild(slide);
-  });
-
-  if (swiperInstance) swiperInstance.destroy(true, true);
-  
-  swiperInstance = new Swiper('.avis-swiper', {
-    loop: true,
-    autoplay: { delay: 4500 },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    slidesPerView: 1,
-    spaceBetween: 20,
-    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-  });
-}
-
-// Filtres
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    
-    const filter = btn.dataset.filter;
-    const filtered = filter === 'all' ? avis : avis.filter(a => a.stars === parseInt(filter));
-    displayAvis(filtered);
-  });
-});
-
-displayAvis(avis);
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-// Données des avis (tu peux en ajouter/supprimer très facilement)
-const avis = [
-    { stars: 5, text: "Un livre qui donne envie de tout plaquer et de partir à vélo. Émouvant, drôle et tellement humain.", name: "Sophie L.", location: "Toulouse", date: "Juillet 2026" },
+    { stars: 5, text: "Un livre magnifique qui donne envie de prendre la route. On rit, on est ému, on a l’impression d’être avec Papido sur son vélo.", name: "Sophie L.", location: "Toulouse", date: "Juillet 2026" },
     { stars: 5, text: "J’ai ri et j’ai pleuré. On se sent vraiment sur la route avec Papido. Un très beau récit d’aventure.", name: "Thomas Moreau", location: "Bretagne", date: "Juin 2026" },
     { stars: 5, text: "Authentique, sincère et inspirant. Parfait pour rêver les soirs d’hiver.", name: "Julie Bernard", location: "Lyon", date: "Juillet 2026" },
     { stars: 5, text: "On vit l’aventure avec lui. Un livre qui fait du bien et qui motive à sortir de sa zone de confort.", name: "Pierre Lambert", location: "Normandie", date: "Mai 2026" },
     { stars: 4, text: "Très beau témoignage. Quelques longueurs mais l’esprit du voyage est magnifiquement transmis.", name: "Marie Leclerc", location: "Alsace", date: "Juillet 2026" }
 ];
 
-function generateStars(n) { return "★".repeat(n); }
+function generateStars(n) {
+    return "★".repeat(n);
+}
 
 let swiperInstance;
 
@@ -388,9 +252,10 @@ function displayAvis(filteredAvis) {
         slide.className = 'swiper-slide';
         slide.innerHTML = `
             <div style="background:white; padding:35px; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.1); height:100%; text-align:left;">
-                <div style="color:#ffd700; font-size:2.1rem; margin-bottom:15px;">${generateStars(avis.stars)}</div>
-                <p style="font-style:italic; line-height:1.6;">« ${avis.text} »</p>
-                <p style="margin-top:25px;"><strong>${avis.name}</strong><br><small>${avis.location} — ${avis.date}</small></p>
+                <div style="color:#ffd700; font-size:2.2rem; margin-bottom:15px;">${generateStars(avis.stars)}</div>
+                <p style="font-style:italic; line-height:1.6; margin-bottom:20px;">« ${avis.text} »</p>
+                <strong>${avis.name}</strong><br>
+                <small>${avis.location} — ${avis.date}</small>
             </div>
         `;
         container.appendChild(slide);
@@ -400,7 +265,7 @@ function displayAvis(filteredAvis) {
     
     swiperInstance = new Swiper('.avis-swiper', {
         loop: true,
-        autoplay: { delay: 5000, disableOnInteraction: false },
+        autoplay: { delay: 5000 },
         pagination: { el: '.swiper-pagination', clickable: true },
         slidesPerView: 1,
         spaceBetween: 25,
@@ -411,7 +276,7 @@ function displayAvis(filteredAvis) {
     });
 }
 
-// Filtres
+// Gestion des filtres
 document.querySelectorAll('#avis .filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('#avis .filter-btn').forEach(b => b.classList.remove('active'));
