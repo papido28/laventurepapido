@@ -7,64 +7,14 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        .commande-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .hero-commande {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .hero-commande img {
-            width: 100%;
-            max-width: 380px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        h1 { color: #c40000; text-align:center; }
-        h2 { text-align:center; color:#333; }
-        .prix { font-size: 48px; font-weight:bold; color:#c40000; text-align:center; margin:20px 0; }
+        .commande-container { max-width: 900px; margin: 40px auto; padding: 40px 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .hero-commande { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .hero-commande img { width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
         label { display:block; margin:15px 0 6px; font-weight:bold; }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #999;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-        .btn-principal {
-            width: 100%;
-            padding: 18px;
-            font-size: 22px;
-            font-weight: bold;
-            background: #c40000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            margin: 25px 0 15px 0;
-            cursor: pointer;
-        }
-        .btn-paypal {
-            width: 100%;
-            padding: 16px;
-            font-size: 20px;
-            font-weight: bold;
-            background: #003087;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #999; border-radius: 8px; font-size: 16px; }
+        .payment-buttons { display: none; margin-top: 30px; } /* Caché au départ */
+        .btn-principal { width: 100%; padding: 18px; font-size: 22px; font-weight: bold; background: #c40000; color: white; border: none; border-radius: 10px; margin: 10px 0; cursor: pointer; }
+        .btn-paypal { width: 100%; padding: 16px; font-size: 20px; font-weight: bold; background: #003087; color: white; border: none; border-radius: 10px; cursor: pointer; }
         .total { font-size: 26px; text-align:center; margin:25px 0; color:#c40000; }
     </style>
 </head>
@@ -92,53 +42,77 @@
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
             
-            <div class="prix">19,90 €</div>
+            <div class="prix">19,90 € + 3,10 € port = <strong>23,00 €</strong></div>
 
-            <form action="https://formspree.io/f/xpqeoyya" method="POST">
-                <input type="hidden" name="_next" value="https://laventurepapido.fr/merci.html">
-
+            <form id="orderForm">
                 <label>Prénom *</label>
-                <input type="text" name="prenom" required>
+                <input type="text" id="prenom" required>
 
                 <label>Nom *</label>
-                <input type="text" name="nom" required>
+                <input type="text" id="nom" required>
 
                 <label>Adresse complète *</label>
-                <input type="text" name="adresse" required>
+                <input type="text" id="adresse" required>
 
                 <label>Code postal *</label>
-                <input type="text" name="codepostal" required>
+                <input type="text" id="codepostal" required>
 
                 <label>Ville *</label>
-                <input type="text" name="ville" required>
-
-                <label>Téléphone</label>
-                <input type="tel" name="telephone">
+                <input type="text" id="ville" required>
 
                 <label>Email *</label>
-                <input type="email" name="email" required>
+                <input type="email" id="email" required>
 
                 <label>Dédicace personnalisée (facultatif)</label>
-                <textarea name="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
+                <textarea id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
-                <div class="total">
-                    Total à payer : <strong>23,00 €</strong>
+                <div class="total">Total à payer : <strong>23,00 €</strong></div>
+
+                <!-- Boutons de paiement qui apparaissent après remplissage -->
+                <div id="paymentButtons" class="payment-buttons">
+                    <button type="button" class="btn-principal" onclick="payerCarte()">
+                        💳 PAYER PAR CARTE BANCAIRE
+                    </button>
+                    <button type="button" class="btn-paypal" onclick="payerPaypal()">
+                        🅿️ PAYER AVEC PAYPAL
+                    </button>
                 </div>
-
-                <button type="submit" class="btn-principal">
-                    💳 COMMANDER ET PAYER MAINTENANT
-                </button>
             </form>
-
-            <!-- Bouton PayPal -->
-            <a href="https://paypal.me/laventurepapido" target="_blank">
-                <button class="btn-paypal">
-                    🅿️ PAYER AVEC PAYPAL
-                </button>
-            </a>
         </div>
     </div>
 </div>
+
+<script>
+// Afficher les boutons quand le formulaire est rempli
+const form = document.getElementById('orderForm');
+const paymentButtons = document.getElementById('paymentButtons');
+
+form.addEventListener('input', function() {
+    const fields = ['prenom', 'nom', 'adresse', 'codepostal', 'ville', 'email'];
+    let filled = true;
+
+    fields.forEach(field => {
+        if (!document.getElementById(field).value.trim()) filled = false;
+    });
+
+    paymentButtons.style.display = filled ? 'block' : 'none';
+});
+
+// Fonctions des boutons
+function payerCarte() {
+    const prenom = document.getElementById('prenom').value;
+    const nom = document.getElementById('nom').value;
+    alert(`Merci ${prenom} !\n\nRedirection vers le paiement par carte...`);
+    // Remplace par ton vrai lien Stripe
+    window.location.href = "TON_LIEN_STRIPE_ICI";
+}
+
+function payerPaypal() {
+    const prenom = document.getElementById('prenom').value;
+    alert(`Merci ${prenom} !\n\nRedirection vers PayPal...`);
+    window.location.href = "https://paypal.me/laventurepapido";
+}
+</script>
 
 </body>
 </html>
