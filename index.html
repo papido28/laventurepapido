@@ -11,6 +11,7 @@
     <title>PAPIDO - Le Tour de France à vélo</title>
     <link rel="stylesheet" href="style.css">
     <meta name="google-site-verification" content="bPwhnfDiWk74vfKfeVSvLWMRwYOQJ5Y48ckxCKEJGKA" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -266,6 +267,92 @@ function copyLink() {
         alert('✅ Lien copié !');
     });
 }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+// === AVIS PAPIDO ===
+const avis = [
+  {
+    stars: 5,
+    text: "Un livre magnifique qui donne envie de prendre la route. On rit, on est ému, on a l’impression d’être avec Papido sur son vélo.",
+    name: "Sophie L.",
+    location: "Toulouse",
+    date: "Juillet 2026"
+  },
+  {
+    stars: 5,
+    text: "Tellement authentique et humain. J’ai dévoré le livre en 2 jours. Bravo pour cette belle aventure !",
+    name: "Marc Dubois",
+    location: "Bretagne",
+    date: "Juin 2026"
+  },
+  {
+    stars: 5,
+    text: "Un récit qui fait du bien. On sent la route, les rencontres, la liberté. À offrir sans hésiter.",
+    name: "Julie Moreau",
+    location: "Lyon",
+    date: "Juillet 2026"
+  },
+  {
+    stars: 4,
+    text: "Très beau témoignage. Quelques passages un peu longs mais l’ensemble est vraiment touchant.",
+    name: "Pierre Renault",
+    location: "Normandie",
+    date: "Mai 2026"
+  }
+  // Tu peux ajouter d'autres avis ici très facilement
+];
+
+function generateStars(n) {
+  return "★".repeat(n);
+}
+
+let swiperInstance;
+
+function displayAvis(filtered) {
+  const container = document.getElementById('avis-container');
+  container.innerHTML = '';
+
+  filtered.forEach(a => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <div style="background:white; padding:30px; border-radius:16px; margin:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); height:100%;">
+        <div style="color:#ffd700; font-size:2rem;">${generateStars(a.stars)}</div>
+        <p style="font-style:italic; margin:20px 0;">« ${a.text} »</p>
+        <strong>${a.name}</strong><br>
+        <small>${a.location} — ${a.date}</small>
+      </div>
+    `;
+    container.appendChild(slide);
+  });
+
+  if (swiperInstance) swiperInstance.destroy(true, true);
+  
+  swiperInstance = new Swiper('.avis-swiper', {
+    loop: true,
+    autoplay: { delay: 4500 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+  });
+}
+
+// Filtres
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const filter = btn.dataset.filter;
+    const filtered = filter === 'all' ? avis : avis.filter(a => a.stars === parseInt(filter));
+    displayAvis(filtered);
+  });
+});
+
+displayAvis(avis);
 </script>
 
 </body>
