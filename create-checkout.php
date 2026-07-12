@@ -1,6 +1,6 @@
 <?php
 require_once('vendor/autoload.php');
-require_once('config.php');   // On charge la clé
+require_once('config.php');
 
 \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
 
@@ -25,7 +25,13 @@ try {
         'mode' => 'payment',
         'success_url' => 'https://laventurepapido.fr/merci.html',
         'cancel_url'  => 'https://laventurepapido.fr/commande.html',
+        
+        // Force la collecte d'adresse complète
         'billing_address_collection' => 'required',
+        'shipping_address_collection' => [
+            'allowed_countries' => ['FR']
+        ],
+        'customer_creation' => 'always',
     ]);
 
     echo json_encode(['url' => $session->url]);
