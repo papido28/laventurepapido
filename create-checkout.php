@@ -1,6 +1,6 @@
 <?php
 require_once('vendor/autoload.php');
-require_once('config.php');           // ← On inclut la config
+require_once('config.php');   // On charge la clé
 
 \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
 
