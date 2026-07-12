@@ -64,42 +64,96 @@
             </div>
 
             <form id="orderForm">
-                <label>Prénom *</label>
-                <input type="text" id="prenom" required>
+    <label>Prénom *</label>
+    <input type="text" name="prenom" id="prenom" required>
 
-                <label>Nom *</label>
-                <input type="text" id="nom" required>
+    <label>Nom *</label>
+    <input type="text" name="nom" id="nom" required>
 
-                <label>numero *</label>
-                <input type="text" id="adresse" required>
+    <label>Numéro *</label>
+    <input type="text" name="numero" id="adresse" required>
 
-                <label>voie (avenue, rue ...) *</label>
-                <input type="text" id="adresse1" required>
+    <label>Voie (avenue, rue ...) *</label>
+    <input type="text" name="voie" id="adresse1" required>
 
-                <label>complement adresse *</label>
-                <input type="text" id="adresse2" required>
+    <label>Complément adresse</label>
+    <input type="text" name="complement" id="adresse2">
 
-                <label>Code postal *</label>
-                <input type="text" id="codepostal" required>
+    <label>Code postal *</label>
+    <input type="text" name="codepostal" id="codepostal" required>
 
-                <label>Ville *</label>
-                <input type="text" id="ville" required>
+    <label>Ville *</label>
+    <input type="text" name="ville" id="ville" required>
 
-                <label>Email *</label>
-                <input type="email" id="email" required>
+    <label>Email *</label>
+    <input type="email" name="email" id="email" required>
 
-                <label>Dédicace personnalisée (facultatif)</label>
-                <textarea id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
+    <label>Dédicace personnalisée (facultatif)</label>
+    <textarea name="dedicace" id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
-                <div id="paymentButtons" class="payment-buttons">
-                    <button type="button" class="btn-principal" onclick="payerCarte()">
-                        💳 PAYER PAR CARTE BANCAIRE
-                    </button>
-                    <button type="button" class="btn-paypal" onclick="payerPaypal()">
-                        🅿️ PAYER AVEC PAYPAL
-                    </button>
-                </div>
-            </form>
+    <div id="paymentButtons" class="payment-buttons">
+        <button type="button" class="btn-principal" onclick="payerCarte()">
+            💳 PAYER PAR CARTE BANCAIRE
+        </button>
+        <button type="button" class="btn-paypal" onclick="payerPaypal()">
+            🅿️ PAYER AVEC PAYPAL
+        </button>
+    </div>
+</form>
+
+2. Ajoute ce script JavaScript (juste avant </body>)html
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+async function payerCarte() {
+    const data = {
+        prenom: document.getElementById('prenom').value,
+        nom: document.getElementById('nom').value,
+        numero: document.getElementById('adresse').value,
+        voie: document.getElementById('adresse1').value,
+        complement: document.getElementById('adresse2').value,
+        codepostal: document.getElementById('codepostal').value,
+        ville: document.getElementById('ville').value,
+        email: document.getElementById('email').value,
+        dedicace: document.getElementById('dedicace').value
+    };
+
+    try {
+        const response = await fetch('/create-checkout.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.url) {
+            window.location.href = result.url;   // Redirection vers Stripe
+        } else {
+            alert("Erreur : " + (result.error || "Problème de paiement"));
+        }
+    } catch (error) {
+        alert("Erreur de connexion : " + error.message);
+    }
+}
+
+// Ta fonction PayPal reste inchangée
+function payerPaypal() {
+    // Ton code PayPal actuel ici...
+    alert("Paiement PayPal en cours de développement...");
+}
+</script>
+
+Prochaine étape :
+Crée le fichier create-checkout.php sur ton serveur.Dis-moi simplement « je suis en PHP » et je te donne le code complet du fichier PHP tout de suite.  Tu es prêt ? Réponds-moi.
+
+Code PHP pour Stripe
+
+Validation formulaire HTML
+
+Ajouter gestion erreur PHP
+
+
         </div>
     </div>
 </div>
