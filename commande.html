@@ -63,7 +63,7 @@
                 <div class="prix-total">= 23,00 €</div>
             </div>
 
-            <form id="orderForm">
+ <form id="orderForm">
     <label>Prénom *</label>
     <input type="text" name="prenom" id="prenom" required>
 
@@ -100,59 +100,6 @@
         </button>
     </div>
 </form>
-
-2. Ajoute ce script JavaScript (juste avant </body>)html
-
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-async function payerCarte() {
-    const data = {
-        prenom: document.getElementById('prenom').value,
-        nom: document.getElementById('nom').value,
-        numero: document.getElementById('adresse').value,
-        voie: document.getElementById('adresse1').value,
-        complement: document.getElementById('adresse2').value,
-        codepostal: document.getElementById('codepostal').value,
-        ville: document.getElementById('ville').value,
-        email: document.getElementById('email').value,
-        dedicace: document.getElementById('dedicace').value
-    };
-
-    try {
-        const response = await fetch('/create-checkout.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.url) {
-            window.location.href = result.url;   // Redirection vers Stripe
-        } else {
-            alert("Erreur : " + (result.error || "Problème de paiement"));
-        }
-    } catch (error) {
-        alert("Erreur de connexion : " + error.message);
-    }
-}
-
-// Ta fonction PayPal reste inchangée
-function payerPaypal() {
-    // Ton code PayPal actuel ici...
-    alert("Paiement PayPal en cours de développement...");
-}
-</script>
-
-Prochaine étape :
-Crée le fichier create-checkout.php sur ton serveur.Dis-moi simplement « je suis en PHP » et je te donne le code complet du fichier PHP tout de suite.  Tu es prêt ? Réponds-moi.
-
-Code PHP pour Stripe
-
-Validation formulaire HTML
-
-Ajouter gestion erreur PHP
-
 
         </div>
     </div>
