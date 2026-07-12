@@ -3,7 +3,7 @@ require_once('vendor/autoload.php');
 require_once('config.php');
 \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
 
-$endpoint_secret = 'whsec_xxxxxxxxxxxxx'; // à récupérer dans le dashboard Stripe → Webhooks
+$endpoint_secret = 'whsec_8EAkijxEdu2i2xqrE96YlsDpZVcoitPy'; // à récupérer dans le dashboard Stripe → Webhooks
 
 $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
