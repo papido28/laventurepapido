@@ -26,12 +26,15 @@ try {
         'success_url' => 'https://laventurepapido.fr/merci.html',
         'cancel_url'  => 'https://laventurepapido.fr/commande.html',
         
-        // Force la collecte d'adresse complète
-        'billing_address_collection' => 'required',
-        'shipping_address_collection' => [
+        // ←←← TU METS ÇA ICI
+        'billing_address_collection' => 'required',           // Adresse de facturation
+        'shipping_address_collection' => [                    // Adresse de livraison
             'allowed_countries' => ['FR']
         ],
+        // ←←← FIN
+
         'customer_creation' => 'always',
+        'locale' => 'fr'
     ]);
 
     echo json_encode(['url' => $session->url]);
