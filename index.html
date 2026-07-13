@@ -204,6 +204,42 @@ https://laventurepapido.fr/
 
 </section>
 
+<!-- ==================== SECTION AVIS NIVEAU 3 + Bouton ==================== -->
+<section id="avis" class="section" style="background:#f8f9fa; padding:70px 20px;">
+    <h2 style="text-align:center; margin-bottom:30px;">Ce que disent les lecteurs</h2>
+    
+    <div style="text-align:center; margin:30px 0;">
+        <div id="big-stars" style="color:#ffd700; font-size:3.2rem;">★★★★★</div>
+        <p style="font-size:1.7rem; margin:10px 0;">
+            <strong id="avg-rating">4.9</strong>/5 — 
+            <span id="total-reviews">(1 avis vérifiés)</span>
+        </p>
+    </div>
+
+    <div style="text-align:center; margin:25px 0 40px 0;">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="5">5 ★</button>
+        <button class="filter-btn" data-filter="4">4 ★</button>
+    </div>
+
+    <div class="swiper avis-swiper" style="max-width:1100px; margin:0 auto 40px auto;">
+        <div class="swiper-wrapper" id="avis-container"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Bouton Laisser un avis -->
+    <div style="text-align:center;">
+        <button onclick="ouvrirFormulaireAvis()" 
+                style="background:#e74c3c; color:white; border:none; padding:16px 40px; 
+                       font-size:1.2rem; border-radius:50px; cursor:pointer; 
+                       box-shadow:0 6px 20px rgba(231,76,60,0.3);">
+            ✍️ Laisser un avis
+        </button>
+    </div>
+</section>
+
+
+    
 <footer>
 
 <h2>PAPIDO</h2>
