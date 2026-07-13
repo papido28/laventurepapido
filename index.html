@@ -1,5 +1,4 @@
-Voici le code complet, prêt à copier-coller directement dans l'éditeur GitHub :
-html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -239,11 +238,8 @@ Le Tour de France à vélo
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-// === AVIS + FORMULAIRE ===
-const avis = [ /* tes avis ici, comme avant */ 
-    { stars: 5, text: "Un livre magnifique qui donne envie de prendre la route...", name: "Sophie L.", location: "Toulouse", date: "Juillet 2026" },
-   
-];
+// === AVIS + FORMULAIRE (connecté au serveur) ===
+let avis = [];
 
 function generateStars(n) { return "★".repeat(n); }
 
@@ -278,6 +274,13 @@ function displayAvis(filteredAvis) {
     });
 }
 
+function mettreAJourMoyenne() {
+    if (avis.length === 0) return;
+    const moyenne = (avis.reduce((sum, a) => sum + a.stars, 0) / avis.length).toFixed(1);
+    document.getElementById('avg-rating').textContent = moyenne;
+    document.getElementById('total-reviews').textContent = `(${avis.length} avis vérifiés)`;
+}
+
 // Filtres
 document.querySelectorAll('#avis .filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -289,34 +292,65 @@ document.querySelectorAll('#avis .filter-btn').forEach(btn => {
     });
 });
 
-// Formulaire "Laisser un avis"
-function ouvrirFormulaireAvis() {
+// Charge les avis depuis le serveur au chargement de la page
+async function chargerAvisDepuisServeur() {
+    try {
+        const response = await fetch('avis.php');
+        const data = await response.json();
+        avis = Array.isArray(data) ? data : [];
+        displayAvis(avis);
+        mettreAJourMoyenne();
+    } catch (err) {
+        console.error('Impossible de charger les avis:', err);
+        displayAvis([]);
+    }
+}
+
+// Formulaire "Laisser un avis" — envoie maintenant au serveur
+async function ouvrirFormulaireAvis() {
     const nom = prompt("Votre prénom et nom :");
     if (!nom) return;
-    
+
     const note = prompt("Votre note sur 5 (ex: 5) :");
     if (!note || note < 1 || note > 5) {
         alert("Note invalide !");
         return;
     }
-    
+
     const texte = prompt("Votre avis :");
     if (!texte) return;
 
-    alert("✅ Merci " + nom + " !\n\nTon avis a été enregistré.\n(Il apparaîtrait ici si le site avait une base de données.)");
-    
-    // Option : ajouter temporairement l'avis dans le carrousel
-    avis.unshift({
-        stars: parseInt(note),
-        text: texte,
-        name: nom,
-        location: "Nouveau lecteur",
-        date: "Maintenant"
-    });
-    displayAvis(avis);
+    const ville = prompt("Votre ville (facultatif) :") || "";
+
+    try {
+        const response = await fetch('avis.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: nom,
+                stars: parseInt(note),
+                text: texte,
+                location: ville
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert("✅ Merci " + nom + " !\n\nTon avis a bien été enregistré et restera visible sur le site.");
+            avis = data.avis;
+            displayAvis(avis);
+            mettreAJourMoyenne();
+        } else {
+            throw new Error(data.error || 'Erreur inconnue');
+        }
+    } catch (err) {
+        alert("Une erreur est survenue, merci de réessayer.");
+        console.error(err);
+    }
 }
 
-displayAvis(avis);
+chargerAvisDepuisServeur();
 </script>
 
 </body>
