@@ -1,0 +1,23 @@
+[
+    {
+        "stars": 1,
+        "text": "test2",
+        "name": "test",
+        "location": "Mansle",
+        "date": "July 2026"
+    },
+    {
+        "stars": 5,
+        "text": "test",
+        "name": "test",
+        "location": "mansle",
+        "date": "July 2026"
+    },
+    {
+        "stars": 5,
+        "text": "Un livre magnifique qui donne envie de prendre la route...",
+        "name": "Sophie L.",
+        "location": "Toulouse",
+        "date": "Juillet 2026"
+    }
+]
