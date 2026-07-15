@@ -20,7 +20,12 @@
 
         .prix-detail { text-align: center; margin: 25px 0 10px 0; }
         .prix-detail .petit { font-size: 24px; color: #555; }
-        .prix-total { font-size: 42px; font-weight: bold; color: #c40000; text-align: center; margin: 5px 0 30px 0; }
+        .prix-total { font-size: 42px; font-weight: bold; color: #c40000; text-align: center; margin: 5px 0 10px 0; }
+
+        .quantite-selector { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0 25px 0; }
+        .quantite-selector button { width: 40px; height: 40px; font-size: 22px; font-weight: bold; background: #f0f0f0; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
+        .quantite-selector button:hover { background: #e0e0e0; }
+        .quantite-selector input { width: 60px; text-align: center; padding: 8px; font-size: 18px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -49,7 +54,13 @@
             
             <div class="prix-detail">
                
-                <div class="prix-total">19.90 €</div>
+                <div class="prix-total" id="prixTotal">19,90 €</div>
+            </div>
+
+            <div class="quantite-selector">
+                <button type="button" onclick="changerQuantite(-1)">−</button>
+                <input type="number" id="quantite" min="1" max="10" value="1" readonly>
+                <button type="button" onclick="changerQuantite(1)">+</button>
             </div>
 
  <form id="orderForm">
@@ -99,6 +110,17 @@ const paymentButtons = document.getElementById('paymentButtons');
 const btnCarte = document.getElementById('btnCarte');
 const erreurMsg = document.getElementById('erreurMsg');
 
+const PRIX_UNITAIRE = 19.90;
+
+function changerQuantite(delta) {
+    const input = document.getElementById('quantite');
+    let val = parseInt(input.value) + delta;
+    val = Math.max(1, Math.min(10, val));
+    input.value = val;
+    const total = val * PRIX_UNITAIRE;
+    document.getElementById('prixTotal').textContent = total.toFixed(2).replace('.', ',') + ' €';
+}
+
 form.addEventListener('input', () => {
     const fields = ['prenom','nom','adresse','codepostal','ville','email'];
     let filled = fields.every(f => document.getElementById(f).value.trim() !== '');
@@ -116,6 +138,7 @@ function getFormData() {
         ville: document.getElementById('ville').value.trim(),
         email: document.getElementById('email').value.trim(),
         dedicace: document.getElementById('dedicace').value.trim(),
+        quantite: parseInt(document.getElementById('quantite').value),
     };
 }
 
