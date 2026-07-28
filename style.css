@@ -113,9 +113,10 @@ border-radius:8px;
 .texte-centre {
   text-align: center;
 }
-.section p.avertissement-remplissage {
+.avertissement-remplissage {
   font-weight: bold;
-  margin: 20px auto 10px auto;
+  color: #c40000;
+  margin-top: 20px;
 }
 
 /* ========================= */
