@@ -145,12 +145,34 @@ form.addEventListener('input', () => {
 });
 
 function getFormData() {
+    const ids = [
+        'prenom',
+        'nom',
+        'adresse',
+        'adresse1',
+        'codepostal',
+        'ville',
+        'telephone',
+        'email',
+        'dedicace',
+        'quantite'
+    ];
+
+    // On vérifie chaque champ un par un
+    for (let id of ids) {
+        const el = document.getElementById(id);
+        if (!el) {
+            console.error("ÉLÉMENT MANQUANT :", id);
+            alert("Élément manquant dans le HTML : " + id);
+            throw new Error("Élément manquant : " + id);
+        }
+    }
+
     return {
         prenom: document.getElementById('prenom').value.trim(),
         nom: document.getElementById('nom').value.trim(),
         numero: document.getElementById('adresse').value.trim(),
         voie: document.getElementById('adresse1').value.trim(),
-        // complement: '', // plus de référence à adresse2
         codepostal: document.getElementById('codepostal').value.trim(),
         ville: document.getElementById('ville').value.trim(),
         telephone: document.getElementById('telephone').value.trim(),
