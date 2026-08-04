@@ -17,15 +17,12 @@
         .btn-principal:disabled { opacity: 0.6; cursor: not-allowed; }
         .btn-paypal { width: 100%; padding: 16px; font-size: 20px; font-weight: bold; background: #003087; color: white; border: none; border-radius: 10px; cursor: pointer; }
         .erreur-msg { color: #c40000; font-weight: bold; margin-top: 10px; display: none; }
-
-        .prix-detail { text-align: center; margin: 25px 0 10px 0; }
-        .prix-detail .petit { font-size: 24px; color: #555; }
         .prix-total { font-size: 42px; font-weight: bold; color: #c40000; text-align: center; margin: 5px 0 10px 0; }
-
         .quantite-selector { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0 25px 0; }
         .quantite-selector button { width: 40px; height: 40px; font-size: 22px; font-weight: bold; background: #f0f0f0; border: 1px solid #ccc; border-radius: 8px; cursor: pointer; }
         .quantite-selector button:hover { background: #e0e0e0; }
         .quantite-selector input { width: 60px; text-align: center; padding: 8px; font-size: 18px; font-weight: bold; }
+        .avertissement-remplissage { color: #c40000; font-size: 14px; margin: 15px 0; font-style: italic; }
     </style>
 </head>
 <body>
@@ -52,10 +49,7 @@
             <h1>Commander le livre</h1>
             <h2>Le Tour de France à vélo</h2>
             
-            <div class="prix-detail">
-               
-                <div class="prix-total" id="prixTotal">19,90 €</div>
-            </div>
+            <div class="prix-total" id="prixTotal">19,90 €</div>
 
             <div class="quantite-selector">
                 <button type="button" onclick="changerQuantite(-1)">−</button>
@@ -63,45 +57,44 @@
                 <button type="button" onclick="changerQuantite(1)">+</button>
             </div>
 
- <form id="orderForm">
-    <label>Prénom *</label>
-    <input type="text" name="prenom" id="prenom" required>
+            <form id="orderForm">
+                <label>Prénom *</label>
+                <input type="text" name="prenom" id="prenom" required>
 
-    <label>Nom *</label>
-    <input type="text" name="nom" id="nom" required>
+                <label>Nom *</label>
+                <input type="text" name="nom" id="nom" required>
 
-    <label>Numéro + Voie (rue, avenue...) *</label>
-    <input type="text" name="numero" id="adresse" placeholder="123" style="width:20%; display:inline-block;" required>
-    <input type="text" name="voie" id="adresse1" placeholder="rue de la Paix" style="width:75%; display:inline-block;" required>
+                <label>Numéro + Voie (rue, avenue...) *</label>
+                <input type="text" name="numero" id="adresse" placeholder="123" style="width:20%; display:inline-block;" required>
+                <input type="text" name="voie" id="adresse1" placeholder="rue de la Paix" style="width:75%; display:inline-block;" required>
 
-      <label>Code postal *</label>
-    <input type="text" name="codepostal" id="codepostal" required>
+                <label>Code postal *</label>
+                <input type="text" name="codepostal" id="codepostal" required>
 
-    <label>Ville *</label>
-    <input type="text" name="ville" id="ville" required>
+                <label>Ville *</label>
+                <input type="text" name="ville" id="ville" required>
 
-     <label>Téléphone *</label>
-    <input type="tel" name="telephone" id="telephone" placeholder="06 12 34 56 78" required>
+                <label>Téléphone *</label>
+                <input type="tel" name="telephone" id="telephone" placeholder="06 12 34 56 78" required>
 
-    <label>Email *</label>
-    <input type="email" name="email" id="email" required>
+                <label>Email *</label>
+                <input type="email" name="email" id="email" required>
 
-    <p class="avertissement-remplissage">Bien remplir chaque case pour que l'offre de paiement apparaisse</p>
+                <p class="avertissement-remplissage">Bien remplir chaque case pour que l'offre de paiement apparaisse</p>
 
-    <label>Dédicace personnalisée (facultatif)</label>
-    <textarea name="dedicace" id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
+                <label>Dédicace personnalisée (facultatif)</label>
+                <textarea name="dedicace" id="dedicace" rows="3" placeholder="Exemple : Pour Lucas..."></textarea>
 
-    <div id="paymentButtons" class="payment-buttons">
-        <button type="button" class="btn-principal" id="btnCarte" onclick="payerCarte()">
-            💳 PAYER PAR CARTE BANCAIRE
-        </button>
-        <button type="button" class="btn-paypal" onclick="payerPaypal()">
-            🅿️ PAYER AVEC PAYPAL
-        </button>
-        <div class="erreur-msg" id="erreurMsg"></div>
-    </div>
-</form>
-
+                <div id="paymentButtons" class="payment-buttons">
+                    <button type="button" class="btn-principal" id="btnCarte" onclick="payerCarte()">
+                        💳 PAYER PAR CARTE BANCAIRE
+                    </button>
+                    <button type="button" class="btn-paypal" onclick="payerPaypal()">
+                        🅿️ PAYER AVEC PAYPAL
+                    </button>
+                    <div class="erreur-msg" id="erreurMsg"></div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -119,66 +112,35 @@ function changerQuantite(delta) {
     let val = parseInt(input.value) + delta;
     val = Math.max(1, Math.min(10, val));
     input.value = val;
-    const total = val * PRIX_UNITAIRE;
-    document.getElementById('prixTotal').textContent = total.toFixed(2).replace('.', ',') + ' €';
+    document.getElementById('prixTotal').textContent = (val * PRIX_UNITAIRE).toFixed(2).replace('.', ',') + ' €';
 }
 
-// Vérifie que tous les champs obligatoires sont remplis
 form.addEventListener('input', () => {
-    const fields = [
-        'prenom',
-        'nom',
-        'adresse',      // numéro
-        'adresse1',     // voie
-        'codepostal',
-        'ville',
-        'telephone',
-        'email'
-    ];
-    
+    const fields = ['prenom', 'nom', 'adresse', 'adresse1', 'codepostal', 'ville', 'telephone', 'email'];
     const filled = fields.every(id => {
         const el = document.getElementById(id);
         return el && el.value.trim() !== '';
     });
-    
     paymentButtons.style.display = filled ? 'block' : 'none';
 });
 
 function getFormData() {
-    const ids = [
-        'prenom',
-        'nom',
-        'adresse',
-        'adresse1',
-        'codepostal',
-        'ville',
-        'telephone',
-        'email',
-        'dedicace',
-        'quantite'
-    ];
-
-    // On vérifie chaque champ un par un
-    for (let id of ids) {
+    function getValue(id) {
         const el = document.getElementById(id);
-        if (!el) {
-            console.error("ÉLÉMENT MANQUANT :", id);
-            alert("Élément manquant dans le HTML : " + id);
-            throw new Error("Élément manquant : " + id);
-        }
+        return el ? el.value.trim() : '';
     }
 
     return {
-        prenom: document.getElementById('prenom').value.trim(),
-        nom: document.getElementById('nom').value.trim(),
-        numero: document.getElementById('adresse').value.trim(),
-        voie: document.getElementById('adresse1').value.trim(),
-        codepostal: document.getElementById('codepostal').value.trim(),
-        ville: document.getElementById('ville').value.trim(),
-        telephone: document.getElementById('telephone').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        dedicace: document.getElementById('dedicace').value.trim(),
-        quantite: parseInt(document.getElementById('quantite').value)
+        prenom: getValue('prenom'),
+        nom: getValue('nom'),
+        numero: getValue('adresse'),
+        voie: getValue('adresse1'),
+        codepostal: getValue('codepostal'),
+        ville: getValue('ville'),
+        telephone: getValue('telephone'),
+        email: getValue('email'),
+        dedicace: getValue('dedicace'),
+        quantite: parseInt(getValue('quantite')) || 1
     };
 }
 
