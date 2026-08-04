@@ -123,9 +123,24 @@ function changerQuantite(delta) {
     document.getElementById('prixTotal').textContent = total.toFixed(2).replace('.', ',') + ' €';
 }
 
+// Vérifie que tous les champs obligatoires sont remplis
 form.addEventListener('input', () => {
-    const fields = ['prenom','nom','adresse','codepostal','ville','email'];
-    let filled = fields.every(f => document.getElementById(f).value.trim() !== '');
+    const fields = [
+        'prenom',
+        'nom',
+        'adresse',      // numéro
+        'adresse1',     // voie
+        'codepostal',
+        'ville',
+        'telephone',
+        'email'
+    ];
+    
+    const filled = fields.every(id => {
+        const el = document.getElementById(id);
+        return el && el.value.trim() !== '';
+    });
+    
     paymentButtons.style.display = filled ? 'block' : 'none';
 });
 
@@ -135,12 +150,13 @@ function getFormData() {
         nom: document.getElementById('nom').value.trim(),
         numero: document.getElementById('adresse').value.trim(),
         voie: document.getElementById('adresse1').value.trim(),
-        complement: document.getElementById('adresse2').value.trim(),
+        // complement: '', // plus de référence à adresse2
         codepostal: document.getElementById('codepostal').value.trim(),
         ville: document.getElementById('ville').value.trim(),
+        telephone: document.getElementById('telephone').value.trim(),
         email: document.getElementById('email').value.trim(),
         dedicace: document.getElementById('dedicace').value.trim(),
-        quantite: parseInt(document.getElementById('quantite').value),
+        quantite: parseInt(document.getElementById('quantite').value)
     };
 }
 
