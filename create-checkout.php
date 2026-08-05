@@ -1,13 +1,17 @@
 <?php
-require_once('vendor/autoload.php');
+require_once('stripe-lib/init.php');
 require_once('config.php');
+
 \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
 header('Content-Type: application/json');
+
 try {
     $input = json_decode(file_get_contents('php://input'), true);
-    // Récupération des champs du formulaire
+
+    // Récupération des champs
     $prenom     = trim($input['prenom'] ?? '');
     $nom        = trim($input['nom'] ?? '');
+    $telephone  = trim($input['telephone'] ?? '');
     $numero     = trim($input['numero'] ?? '');
     $voie       = trim($input['voie'] ?? '');
     $complement = trim($input['complement'] ?? '');
@@ -15,21 +19,24 @@ try {
     $ville      = trim($input['ville'] ?? '');
     $email      = trim($input['email'] ?? '');
     $dedicace   = trim($input['dedicace'] ?? '');
-    // Quantité commandée (entre 1 et 10)
-    $quantite   = isset($input['quantite']) ? intval($input['quantite']) : 1;
-    if ($quantite < 1) { $quantite = 1; }
-    if ($quantite > 10) { $quantite = 10; }
-    // Validation minimale
-    if (!$prenom || !$nom || !$numero || !$voie || !$codepostal || !$ville || !$email) {
+
+    $quantite = isset($input['quantite']) ? intval($input['quantite']) : 1;
+    if ($quantite < 1)  $quantite = 1;
+    if ($quantite > 10) $quantite = 10;
+
+    // Validation
+    if (!$prenom || !$nom || !$telephone || !$numero || !$voie || !$codepostal || !$ville || !$email) {
         http_response_code(400);
         echo json_encode(['error' => 'Champs obligatoires manquants']);
         exit();
     }
-    // 1) Enregistrement immédiat de la commande sur le serveur
+
+    // Enregistrement dans commandes.log
     $commande = [
         'date'        => date('Y-m-d H:i:s'),
         'prenom'      => $prenom,
         'nom'         => $nom,
+        'telephone'   => $telephone,
         'adresse'     => "$numero $voie",
         'complement'  => $complement,
         'code_postal' => $codepostal,
@@ -40,7 +47,32 @@ try {
         'statut'      => 'en_attente_paiement',
     ];
     file_put_contents('commandes.log', json_encode($commande, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND);
-    // 2) Création de la session Stripe, avec email pré-rempli et dédicace en métadonnée
+
+    // ========== ENVOI DE L'EMAIL ==========
+    $to = "papido28630@gmail.com"; // ← Ton email
+    $subject = "Nouvelle commande PAPIDO - $prenom $nom";
+
+    $message = "Nouvelle commande reçue !\n\n";
+    $message .= "Date : " . date('d/m/Y H:i') . "\n";
+    $message .= "Prénom : $prenom\n";
+    $message .= "Nom : $nom\n";
+    $message .= "Téléphone : $telephone\n";
+    $message .= "Email : $email\n";
+    $message .= "Adresse : $numero $voie\n";
+    $message .= "Complément : $complement\n";
+    $message .= "Code postal : $codepostal\n";
+    $message .= "Ville : $ville\n";
+    $message .= "Quantité : $quantite\n";
+    $message .= "Dédicace : $dedicace\n";
+
+    $headers = "From: commande@laventurepapido.fr\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+
+    mail($to, $subject, $message, $headers);
+    // ======================================
+
+    // Création de la session Stripe
     $session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'customer_email' => $email,
@@ -78,17 +110,25 @@ try {
         ],
         'customer_creation' => 'always',
         'locale' => 'fr',
+        'phone_number_collection' => [
+            'enabled' => true
+        ],
         'metadata' => [
-            'prenom'     => $prenom,
-            'nom'        => $nom,
-            'dedicace'   => $dedicace,
-            'quantite'   => $quantite,
+            'prenom'      => $prenom,
+            'nom'         => $nom,
+            'telephone'   => $telephone,
+            'dedicace'    => $dedicace,
+            'quantite'    => $quantite,
+            'adresse'     => "$numero $voie $complement",
+            'code_postal' => $codepostal,
+            'ville'       => $ville,
         ],
     ]);
+
     echo json_encode(['url' => $session->url]);
+
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);
 }
 ?>
-
